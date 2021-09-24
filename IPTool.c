@@ -14,8 +14,10 @@ int main()
     int k;
     
     for(i = 0; i < 4; i++){
-        printf("Inserisci la cifra numero %d dell'indirizzo ipv4 in decimale: ", i + 1);
-        scanf("%d", &ip_dec_dot[i]);
+      do{
+          printf("Inserisci la cifra numero %d dell'indirizzo ipv4 in decimale: ", i + 1);
+          scanf("%d", &ip_dec_dot[i]);
+      }while(ip_dec_dot[i] < 0 || ip_dec_dot[i] > 255);
     }
     
     printf("L'indirizzo inserito e' il seguente: ");
@@ -27,6 +29,8 @@ int main()
             printf("%d.", ip_dec_dot[i]);
         }
     }
+    printf("\n");
+
     switch(ip_dec_dot[0]){
       case 10:
         printf("L'indirizzo inserito e' un indirizzo privato di classe A\n");
