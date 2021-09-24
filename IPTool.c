@@ -27,6 +27,27 @@ int main()
             printf("%d.", ip_dec_dot[i]);
         }
     }
+    switch(ip_dec_dot[0]){
+      case 10:
+        printf("L'indirizzo inserito e' un indirizzo privato di classe A\n");
+        break;
+      case 172:
+        if(ip_dec_dot[1] >= 16 && ip_dec_dot[1] <= 31){
+          printf("L'indirizzo inserito e' un indirizzo privato di classe B\n");
+        }
+        else{
+          printf("L'indirizzo inserito e' un indirizzo pubblico di classe B\n");
+        }
+      case 192:
+        if(ip_dec_dot[1] == 168){
+          printf("L'indirizzo inserito e' un indirizzo privato di classe C\n");
+        }
+        else{
+          printf("L'indirizzo inserito e' un indirizzo pubblico di classe C\n");
+        }
+    }
+
+    //INIZIO CONVERSIONE DA DEC A BIN
     i = 0;
     j = 7;
     k = 0;
@@ -41,7 +62,7 @@ int main()
         j = 8 * i + 7; // Per esempio: 8 - 1 + 8 = 15
         k = 0;
     }while(i < 4);
-    
+    //INIZIO STAMPA IP BIN
     printf("\nL'indirizzo ip in binario e' il seguente: \n");
     j = 0;
     k = 8;
