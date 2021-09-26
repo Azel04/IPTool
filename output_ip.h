@@ -19,3 +19,19 @@ void output_ip_bin(int *ip_bin_dot){
       printf("%d", ip_bin_dot[i]);
     }	
 }
+
+void output_ip_bin_sottorete(int *ip_bin_dot, int intervallo){
+	int i;
+    for(i = 0; i < 32; i++){
+      if(i % 8 == 0 && i != 0){
+        printf(".");
+      }
+      if(i == 24 + intervallo){
+        printf("|");
+        printf("%d", ip_bin_dot[i]);
+      }
+      else{
+        printf("%d", ip_bin_dot[i]);
+      }
+    }	
+}
