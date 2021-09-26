@@ -13,7 +13,7 @@ int main(){
 	int fine;
 	fine = 0;
 	do{
-		printf("1) Inserisci un indirizzo ipv4 e calcolane la sua classe e il suo corrispettivo ip in binario\n2) Crea un numero di sottoreti a tua scelta\n 3) Fine\nFai la tua scelta: ");
+		printf("1) Inserisci un indirizzo ipv4 e calcolane la sua classe e il suo corrispettivo ip in binario\n2) Crea un numero di sottoreti a tua scelta\n 3)Fine\nFai la tua scelta: ");
 		scanf("%d", &scelta);
 		switch(scelta){
 			case 1:
