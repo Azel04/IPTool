@@ -27,7 +27,8 @@ int main(){
 				output_ip_bin(ip_bin_dot);
 				break;
 			case 2:
-				creatore_sottoreti();
+				input_ip(ip_dec_dot);
+				creatore_sottoreti(ip_dec_dot);
 				break;
 			case 3:
 				printf("Fine\n");
