@@ -32,6 +32,7 @@ int main(){
  				tipo = controllo_tipo_ip_sottorete(ip_dec_dot);
 				switch(tipo){
 					case 0:
+						creatore_sottoreti_a(ip_dec_dot);
 						break;
 					case 1:
 						creatore_sottoreti_b(ip_dec_dot);
