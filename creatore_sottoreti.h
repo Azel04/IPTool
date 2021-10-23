@@ -27,8 +27,7 @@ void creatore_sottoreti_b(int *ip_dec_dot){
     pot2 = pow(2,cont_pot);
     cont_pot++;
   }while(pot2 < num_sottoreti);
-  intervallo_pot = 8 - (cont_pot - 1);
-  intervallo = pow(2, intervallo_pot);
+  intervallo = 256 / pot2;
   
   printf("\tNETWORK ID\tBROADCAST\tGATEWAY\t\tPRIMO HOST\tULTIMO HOST\n");
   for(cont = 0; cont < num_sottoreti; cont++){
@@ -93,7 +92,7 @@ void creatore_sottoreti_c(int *ip_dec_dot){
         pot2 = pow(2,cont_pot);
         cont_pot++;
     }while(pot2 <= num_sottoreti);
-    intervallo = 256 / (cont_pot - 1);
+    intervallo = 256 / pot2;
 
     net_id = 0;
     printf("\tNETWORK ID\tBROADCAST\tGATEWAY\t\tPRIMO HOST\tULTIMO HOST\n");
