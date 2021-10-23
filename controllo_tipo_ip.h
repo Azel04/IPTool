@@ -1,5 +1,6 @@
 
 void controllo_tipo_ip(int *ip_dec_dot);
+int controllo_tipo_ip_sottorete(int *ip_dec_dot);
 
 void controllo_tipo_ip(int *ip_dec_dot){
     switch(ip_dec_dot[0]){
@@ -21,4 +22,16 @@ void controllo_tipo_ip(int *ip_dec_dot){
           printf("L'indirizzo inserito e' un indirizzo pubblico di classe C\n");
         }
     }	
+}
+
+int controllo_tipo_ip_sottorete(int *ip_dec_dot){
+  if(ip_dec_dot[0] >= 1 && ip_dec_dot[0] <= 127){
+    return 0;
+  }
+    if(ip_dec_dot[0] >= 128 && ip_dec_dot[0] <= 191){
+    return 1;
+  }
+    if(ip_dec_dot[0] >= 192 && ip_dec_dot[0] <= 223){
+    return 2;
+  }
 }

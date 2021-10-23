@@ -11,6 +11,7 @@ int main(){
 	int ip_dec_dot[4];
 	int scelta;
 	int fine;
+	int tipo;
 	fine = 0;
 	do{
 		printf("1) Inserisci un indirizzo ipv4 e calcolane la sua classe e il suo corrispettivo ip in binario\n2) Crea un numero di sottoreti a tua scelta\n3) Fine\nFai la tua scelta: ");
@@ -28,7 +29,17 @@ int main(){
 				break;
 			case 2:
 				input_ip(ip_dec_dot);
-				creatore_sottoreti(ip_dec_dot);
+ 				tipo = controllo_tipo_ip_sottorete(ip_dec_dot);
+				switch(tipo){
+					case 0:
+						break;
+					case 1:
+						creatore_sottoreti_b(ip_dec_dot);
+						break;
+					case 2:
+						creatore_sottoreti_c(ip_dec_dot);
+				}
+				
 				break;
 			case 3:
 				printf("Fine\n");
