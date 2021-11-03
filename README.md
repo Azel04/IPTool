@@ -10,3 +10,4 @@ IP tool è uno strumento per convertire indirizzi ip da Decimale a Binario e per
 - [ ] Calcolo NetID in binario per indirizzi di classe B
 - [ ] Calcolo NetID in binario per indirizzi di classe A
 - [x] Riscrivere il codice utilizzando file header 
+- [ ] Supporto a Subnet Mask variabili
