@@ -36,13 +36,12 @@ void creatore_sottoreti_a(int *ip_dec_dot){
     cont_pot++;
   }while(pot2 < num_sottoreti);
   intervallo = 256 / pot2;
-  
+  for(i = 0; i < 4; i++){
+    clone_ip_dec_dot[i] = ip_dec_dot[i];
+  }
   printf("NETWORK ID\tGATEWAY\tBROADCAST\t\tPRIMO HOST\tULTIMO HOST\n");
   conversione_decimale_binario(ip_dec_dot, ip_bin_dot);
   for(cont = 0; cont < num_sottoreti; cont++){
-    for(i = 0; i < 4; i++){
-      clone_ip_dec_dot[i] = ip_dec_dot[i];
-    }
     
     for(i = 0; i < 32; i++){
       ip_temp[i] = ip_bin_dot[i];
@@ -80,6 +79,7 @@ void creatore_sottoreti_a(int *ip_dec_dot){
     }
     printf("\n\n");
   }
+  printf("INDIRIZZO IP CON CIDR: %d.0.0.0/%d\n", clone_ip_dec_dot[0], 8 + (cont_pot - 1));
 
 }
 
@@ -158,7 +158,7 @@ void creatore_sottoreti_b(int *ip_dec_dot){
     }
     printf("\n\n");
   }
-
+  printf("INDIRIZZO IP CON CIDR: %d.%d.0.0/%d\n", clone_ip_dec_dot[0], clone_ip_dec_dot[1], 16 + (cont_pot - 1));
 }
 
 
@@ -207,6 +207,7 @@ void creatore_sottoreti_c(int *ip_dec_dot){
     intervallo = 256 / pot2;
 
     net_id = 0;
+    
     printf("\tNETWORK ID\tBROADCAST\tGATEWAY\t\tPRIMO HOST\tULTIMO HOST\n");
     for(cont = 0; cont < num_sottoreti; cont++){
         broadcast = net_id + intervallo - 1;
@@ -229,4 +230,6 @@ void creatore_sottoreti_c(int *ip_dec_dot){
 
         printf("\n\n");
     }
+    printf("INDIRIZZO IP CON CIDR: %d.%d.%d.0/%d\n", ip_dec_dot[0], ip_dec_dot[1], ip_dec_dot[2], 24 + (cont_pot - 1));
+
 }
