@@ -3,6 +3,7 @@
 #include "input_ip.h"
 #include "output_ip.h"
 #include "conversione_decimale_binario_ip.h"
+#include "conversione_binario_decimale.h"
 #include "controllo_tipo_ip.h"
 #include "creatore_sottoreti.h"
 

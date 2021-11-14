@@ -18,3 +18,11 @@ void conversione_decimale_binario(int *ip_dec_dot, int *ip_bin_dot){
         k = 0;
     }while(i < 4);
 }
+void conversione_decimale_binario_semplice(int numero){
+	int i;
+	int j;
+	int k;
+  for(i = 0; i < 8; i++){
+    
+  }
+}
