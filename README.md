@@ -16,6 +16,7 @@ IP tool è uno strumento per convertire indirizzi ip da Decimale a Binario e per
 ## Changelog
 #### 15-11-2021
  - Pulizia generale del codice.
+ - Bug fix vari
 #### 14-11-2021
  - Sostituito algoritmo del calcolo delle sottoreti con indirizzi di classe B e A con uno più funzionale (Manipolazione dei bit diretta).
  - Bug fix vari
