@@ -8,9 +8,9 @@ IP tool è uno strumento per convertire indirizzi ip da Decimale a Binario e per
  3. [x] Calcolo del NetID, Broadcast, Gateway, Range per indirizzi di classe C, dato il numero di sottoreti.
  4. [x] Calcolo del NetID, Broadcast, Gateway, Range per indirizzi di classe B, dato il numero di sottoreti.
  5. [x] Calcolo del NetID, Broadcast, Gateway, Range per indirizzi di classe A, dato il numero di sottoreti.
- 6. [x] Calcolo del NetID, Broadcast, Gateway, Range per indirizzi di classe C, dato il numero di host.
- 7. [x] Calcolo del NetID, Broadcast, Gateway, Range per indirizzi di classe B, dato il numero di host.
- 8. [x] Calcolo del NetID, Broadcast, Gateway, Range per indirizzi di classe A, dato il numero di host.
+ 6. [ ] Calcolo del NetID, Broadcast, Gateway, Range per indirizzi di classe C, dato il numero di host.
+ 7. [ ] Calcolo del NetID, Broadcast, Gateway, Range per indirizzi di classe B, dato il numero di host.
+ 8. [ ] Calcolo del NetID, Broadcast, Gateway, Range per indirizzi di classe A, dato il numero di host.
  9. [x] Calcolo NetID in binario per indirizzi di classe C
  10. [ ] Calcolo NetID in binario per indirizzi di classe B
  11. [ ] Calcolo NetID in binario per indirizzi di classe A
