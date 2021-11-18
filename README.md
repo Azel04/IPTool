@@ -16,7 +16,7 @@ IP tool è uno strumento per convertire indirizzi ip da Decimale a Binario e per
  11. [x] Supporto notazione CIDR
 ## Changelog
 #### 17-11-2021
- 1. Bug fix
+ 1. Risolto un bug sul calcolo del primo host delle reti di classe A e B
 #### 16-11-2021
  1. Aggiunto calcolo della subnet mask
  2. Aggiunto contatore sottoreti per classi A e B
