@@ -15,7 +15,7 @@ int main(){
 	int tipo;
 	fine = 0;
 	do{
-		printf("1) Inserisci un indirizzo ipv4 e calcolane la sua classe e il suo corrispettivo ip in binario\n2) Crea un numero di sottoreti a tua scelta\n3) Verifica se 2 indirizzi appartengono alla stessa subnet\n4) Fine\nFai la tua scelta: ");
+		printf("1) Inserisci un indirizzo ipv4 e calcolane la sua classe e il suo corrispettivo ip in binario\n2) Crea un numero di sottoreti a tua scelta\n3) Crea un numero di sottoreti a tua scelta (con scelta di host per sottorete)\n4) Verifica se 2 indirizzi appartengono alla stessa subnet\n5) Fine\nFai la tua scelta: ");
 		scanf("%d", &scelta);
 		switch(scelta){
 			case 1:
@@ -44,9 +44,24 @@ int main(){
 				
 				break;
 			case 3:
+				input_ip(ip_dec_dot);
+ 				tipo = controllo_tipo_ip_sottorete(ip_dec_dot);
+				switch(tipo){
+					case 0:
+						creatore_sottoreti_a_host(ip_dec_dot);
+						break;
+					case 1:
+						creatore_sottoreti_b_host(ip_dec_dot);
+						break;
+					case 2:
+						creatore_sottoreti_c_host(ip_dec_dot);
+						break;
+				}	
+				break;			
+			case 4:
 				controllo_stessa_subnet();
 				break;
-			case 4:
+			case 5:
 				printf("Fine\n");
 				fine = 1;
 				break;
