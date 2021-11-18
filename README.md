@@ -5,16 +5,19 @@ IP tool è uno strumento per convertire indirizzi ip da Decimale a Binario e per
 
  1. [x] Conversione IP da decimale a binario
  2. [x] Controllo IP Pubblico e privato con classe IP
- 3. [x] Calcolo del NetID, Broadcast, Gateway, Range per indirizzi di classe C
- 4. [x] Calcolo del NetID, Broadcast, Gateway, Range per indirizzi di classe B (Testatelo anche voi, sembrerebbe funzionare)
- 5. [x] Calcolo del NetID, Broadcast, Gateway, Range per indirizzi di classe A (Testatelo anche voi, sembrerebbe funzionare)
- 6. [x] Calcolo NetID in binario per indirizzi di classe C
- 7. [ ] Calcolo NetID in binario per indirizzi di classe B
- 8. [ ] Calcolo NetID in binario per indirizzi di classe A
- 9. [x] Riscrivere il codice utilizzando file header 
- 10. [ ] Supporto a Subnet Mask variabili
- 11. [x] Supporto notazione CIDR
- 12. [x] Controllare se 2 indirizzi ip appartengono alla stessa subnet
+ 3. [x] Calcolo del NetID, Broadcast, Gateway, Range per indirizzi di classe C, dato il numero di sottoreti.
+ 4. [x] Calcolo del NetID, Broadcast, Gateway, Range per indirizzi di classe B, dato il numero di sottoreti.
+ 5. [x] Calcolo del NetID, Broadcast, Gateway, Range per indirizzi di classe A, dato il numero di sottoreti.
+ 6. [x] Calcolo del NetID, Broadcast, Gateway, Range per indirizzi di classe C, dato il numero di host.
+ 7. [x] Calcolo del NetID, Broadcast, Gateway, Range per indirizzi di classe B, dato il numero di host.
+ 8. [x] Calcolo del NetID, Broadcast, Gateway, Range per indirizzi di classe A, dato il numero di host.
+ 9. [x] Calcolo NetID in binario per indirizzi di classe C
+ 10. [ ] Calcolo NetID in binario per indirizzi di classe B
+ 11. [ ] Calcolo NetID in binario per indirizzi di classe A
+ 12. [x] Riscrivere il codice utilizzando file header 
+ 13. [ ] Supporto a Subnet Mask variabili
+ 14. [x] Supporto notazione CIDR
+ 15. [x] Controllare se 2 indirizzi ip appartengono alla stessa subnet
 ## Changelog
 #### 18-11-2021
  1. Aggiunta funzione per controllare se 2 indirizzi ip appartengono alla stessa subnet
