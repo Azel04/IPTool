@@ -6,7 +6,7 @@
 #include "conversione_binario_decimale.h"
 #include "controllo_tipo_ip.h"
 #include "creatore_sottoreti.h"
-
+#include "controllo_stessa_subnet.h"
 int main(){
 	int ip_bin_dot[32];
 	int ip_dec_dot[4];
@@ -15,7 +15,7 @@ int main(){
 	int tipo;
 	fine = 0;
 	do{
-		printf("1) Inserisci un indirizzo ipv4 e calcolane la sua classe e il suo corrispettivo ip in binario\n2) Crea un numero di sottoreti a tua scelta\n3) Fine\nFai la tua scelta: ");
+		printf("1) Inserisci un indirizzo ipv4 e calcolane la sua classe e il suo corrispettivo ip in binario\n2) Crea un numero di sottoreti a tua scelta\n3) Verifica se 2 indirizzi appartengono alla stessa subnet\n4) Fine\nFai la tua scelta: ");
 		scanf("%d", &scelta);
 		switch(scelta){
 			case 1:
@@ -44,6 +44,9 @@ int main(){
 				
 				break;
 			case 3:
+				controllo_stessa_subnet();
+				break;
+			case 4:
 				printf("Fine\n");
 				fine = 1;
 				break;
