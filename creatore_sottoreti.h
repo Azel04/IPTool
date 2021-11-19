@@ -94,7 +94,7 @@ void creatore_sottoreti_a(int *ip_dec_dot){
     conversione_decimale_binario_semplice(cont + 1, ip.numero_sottorete_bin);
     j = 0;
     k = 31;
-    for(i = 7 + cont_pot - 1; j <= cont_pot - 1; j++){
+    for(i = 7 + cont_pot - 1; j < cont_pot - 1; j++){
       ip.ip_bin_dot[i] = ip.numero_sottorete_bin[k];
       k--;
       i--;
@@ -133,6 +133,9 @@ void creatore_sottoreti_b(int *ip_dec_dot){
   }
   ip_dec_dot[2] = 0;
   ip_dec_dot[3] = 0;
+  for(i = 0; i < 4; i++){
+    clone_ip_dec_dot[i] = ip_dec_dot[i];
+  }
   do{
     printf("Digita il numero di sottoreti da creare: ");
     scanf("%d", &num_sottoreti);
@@ -184,7 +187,7 @@ void creatore_sottoreti_b(int *ip_dec_dot){
     conversione_decimale_binario_semplice(cont + 1, ip.numero_sottorete_bin);
     j = 0;
     k = 31;
-    for(i = 15 + cont_pot - 1; j <= cont_pot - 1; j++){
+    for(i = 15 + cont_pot - 1; j < cont_pot - 1; j++){
       ip.ip_bin_dot[i] = ip.numero_sottorete_bin[k];
       k--;
       i--;
@@ -192,12 +195,12 @@ void creatore_sottoreti_b(int *ip_dec_dot){
     printf("\n\n");
   }
   ip.host_per_sottorete = 0;
-  ip.host_per_sottorete = pow(2, (32 - (16 + (cont_pot - 1)))) - 1;
+  ip.host_per_sottorete = pow(2, (32 - (16 + (cont_pot - 1)))) - 2;
   for(i = 0; i < 16 + (cont_pot - 1); i++){
     ip.subnet_mask_bin[i] = 1;
   }
   conversione_binario_decimale(ip.subnet_mask_dec, ip.subnet_mask_bin);
-  printf("INDIRIZZO IP CON CIDR: %d.0.0.0/%d\nHost per sottorete: %d\nSubnet mask: %d.%d.%d.%d\n", clone_ip_dec_dot[0], 16 + (cont_pot - 1), ip.host_per_sottorete, ip.subnet_mask_dec[0], ip.subnet_mask_dec[1], ip.subnet_mask_dec[2], ip.subnet_mask_dec[3]);
+  printf("INDIRIZZO IP CON CIDR: %d.%d.0.0/%d\nHost per sottorete: %d\nSubnet mask: %d.%d.%d.%d\n", clone_ip_dec_dot[0], clone_ip_dec_dot[1], 16 + (cont_pot - 1), ip.host_per_sottorete, ip.subnet_mask_dec[0], ip.subnet_mask_dec[1], ip.subnet_mask_dec[2], ip.subnet_mask_dec[3]);
 }
 
 
@@ -372,7 +375,7 @@ void creatore_sottoreti_a_host(int *ip_dec_dot){
     conversione_decimale_binario_semplice(cont + 1, ip.numero_sottorete_bin);
     j = 0;
     k = 31;
-    for(i = 7 + cont_pot - 1; j <= cont_pot - 1; j++){
+    for(i = 7 + cont_pot - 1; j < cont_pot - 1; j++){
       ip.ip_bin_dot[i] = ip.numero_sottorete_bin[k];
       k--;
       i--;
@@ -484,6 +487,11 @@ void creatore_sottoreti_b_host(int *ip_dec_dot){
     conversione_decimale_binario_semplice(cont + 1, ip.numero_sottorete_bin);
     j = 0;
     k = 31;
+    for(i = 15 + cont_pot - 1; j < cont_pot - 1; j++){
+      ip.ip_bin_dot[i] = ip.numero_sottorete_bin[k];
+      k--;
+      i--;
+    }
     printf("\n\n");
   }
 
