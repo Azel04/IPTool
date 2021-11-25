@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <math.h>
 #include "input_ip.h"
 #include "output_ip.h"
@@ -48,13 +49,13 @@ int main(){
  				tipo = controllo_tipo_ip_sottorete(ip_dec_dot);
 				switch(tipo){
 					case 0:
-						creatore_sottoreti_a_host(ip_dec_dot);
+						creatore_sottoreti_a_variabile(ip_dec_dot);
 						break;
 					case 1:
-						creatore_sottoreti_b_host(ip_dec_dot);
+						creatore_sottoreti_b_variabile(ip_dec_dot);
 						break;
 					case 2:
-						creatore_sottoreti_c_host(ip_dec_dot);
+						creatore_sottoreti_c_variabile(ip_dec_dot);
 						break;
 				}	
 				break;			
