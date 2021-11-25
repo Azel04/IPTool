@@ -63,3 +63,6 @@ Se volete essere sicuri, compilate e eseguite questo programma su un compilatore
 
 ## Possibili avvisi che il compilatore vi può dare alla compilazione
  1. Potrebbe darvi 3 warning sulle funzioni riguardanti il VLSM. Questo perchè ho usato dei `return 0` su funzioni di tipo void. Ignorate questi warning.
+## FAQ
+#### Perchè hai fatto il banner?
+1. Perchè si.
