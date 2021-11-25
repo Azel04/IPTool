@@ -6,7 +6,8 @@
 #include "conversione_decimale_binario_ip.h"
 #include "conversione_binario_decimale.h"
 #include "controllo_tipo_ip.h"
-#include "creatore_sottoreti.h"
+#include "creatore_sottoreti_flsm.h"
+#include "creatore_sottoreti_vlsm.h"
 #include "controllo_stessa_subnet.h"
 int main(){
 	int ip_bin_dot[32];
