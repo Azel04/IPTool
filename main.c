@@ -16,7 +16,7 @@ int main(){
 	int tipo;
 	fine = 0;
 	do{
-		printf("1) Inserisci un indirizzo ipv4 e calcolane la sua classe e il suo corrispettivo ip in binario\n2) Crea un numero di sottoreti a tua scelta\n3) Crea un numero di sottoreti a tua scelta (con scelta di host per sottorete)\n4) Verifica se 2 indirizzi appartengono alla stessa subnet\n5) Fine\nFai la tua scelta: ");
+		printf("1) Inserisci un indirizzo ipv4 e calcolane la sua classe e il suo corrispettivo ip in binario\n2) Crea un numero di sottoreti a tua scelta con la FLSM\n3) Crea un numero di sottoreti a tua scelta con la VLSM\n4) Verifica se 2 indirizzi appartengono alla stessa subnet\n5) Fine\nFai la tua scelta: ");
 		scanf("%d", &scelta);
 		switch(scelta){
 			case 1:
