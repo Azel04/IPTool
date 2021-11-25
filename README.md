@@ -15,10 +15,13 @@ IP tool è uno strumento per convertire indirizzi ip da Decimale a Binario e per
  10. [ ] Calcolo NetID in binario per indirizzi di classe B
  11. [ ] Calcolo NetID in binario per indirizzi di classe A
  12. [x] Riscrivere il codice utilizzando file header 
- 13. [ ] Supporto a Subnet Mask variabili
+ 13. [x] Supporto a Subnet Mask variabili
  14. [x] Supporto notazione CIDR
  15. [x] Controllare se 2 indirizzi ip appartengono alla stessa subnet
 ## Changelog
+#### 25-11-2021
+ 1. Aggiunto supporto a Subnet Mask variabili.
+ 2. Bug fix vari
 #### 19-11-2021
  1. Bug fix vari.
 #### 18-11-2021
@@ -41,6 +44,9 @@ IP tool è uno strumento per convertire indirizzi ip da Decimale a Binario e per
  2. Bug fix vari
 #### 24-09-2021
  1. Prima versione
+## Bug riconosciuti
+ 1. Sulle funzioni per le subnet mask variabili, il printf non visualizza correttamente il numero massimo di sottoreti e host per sottorete.
+
 ## Istruzioni per la compilazione
 #### Linux:
 Programmi necessari: gcc
