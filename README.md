@@ -64,3 +64,6 @@ Programmi necessari: MinGW 64bit
 Visto che uso Linux come sistema operativo principale, non ho testato questo programma su Windows.
 Se possibile non utilizzate Dev-C++ visto che utilizza un compilatore vecchio.
 Se volete essere sicuri, compilate e eseguite questo programma su un compilatore online come Repl o OnlineGDB.
+
+## Possibili avvisi che il compilatore vi può dare alla compilazione
+ 1. Potrebbe darvi 3 warning sulle funzioni riguardanti il VLSM. Questo perchè ho usato dei `return 0` su funzioni di tipo void. Ignorate questi warning.
