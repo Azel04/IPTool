@@ -45,7 +45,7 @@ IP tool è uno strumento per convertire indirizzi ip da Decimale a Binario e per
 #### 24-09-2021
  1. Prima versione
 ## Bug riconosciuti
- 1. Sulle funzioni per le subnet mask variabili, il printf non visualizza correttamente il numero massimo di sottoreti e host per sottorete.
+ 1. Nessuno per ora
 
 ## Istruzioni per la compilazione
 #### Linux:
