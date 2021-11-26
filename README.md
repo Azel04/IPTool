@@ -17,7 +17,9 @@ IP tool è uno strumento per convertire indirizzi ip da Decimale a Binario e per
 ## Changelog
 #### 25-11-2021
  1. Aggiunto supporto a Subnet Mask variabili.
- 2. Bug fix vari
+ 2. Separato il file header per creare le funzioni in 2 file header, 1 per tipo (FLSM, VLSM).
+ 3. Risolti i warning generati dai return 0.
+ 4. Bug fix vari.
 #### 19-11-2021
  1. Bug fix vari.
 #### 18-11-2021
@@ -60,6 +62,3 @@ Programmi necessari: MinGW 64bit
 Visto che uso Linux come sistema operativo principale, non ho testato questo programma su Windows.
 Se possibile non utilizzate Dev-C++ visto che utilizza un compilatore vecchio.
 Se volete essere sicuri, compilate e eseguite questo programma su un compilatore online come Repl o OnlineGDB.
-
-## Possibili avvisi che il compilatore vi può dare alla compilazione
- 1. Potrebbe darvi 3 warning sulle funzioni riguardanti il VLSM. Questo perchè ho usato dei `return 0` su funzioni di tipo void. Ignorate questi warning.
