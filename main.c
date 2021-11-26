@@ -23,7 +23,7 @@ int main(){
 	fine = 0;
 	puts(banner);
 	sleep(2);
-	printf("\nUn programma creato da Jacopo Rossetti\n");
+	printf("\n\tUn programma creato da Jacopo Rossetti\n");
 	sleep(2);
 	printf("\e[1;1H\e[2J"); //Pulizia schermo
 	do{
