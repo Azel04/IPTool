@@ -32,7 +32,7 @@ IP tool è uno strumento per convertire indirizzi ip da Decimale a Binario e per
 #### 17-11-2021
  1. Risolto un bug sul calcolo del primo host delle reti di classe A e B
 #### 16-11-2021
- 1. Aggiunto calcolo della subnet mask
+ 1. Aggiunto calcolo della subnet mask per il FLSM
  2. Aggiunto contatore sottoreti per classi A e B
  3. Bug fix vari
 #### 15-11-2021
