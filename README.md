@@ -15,6 +15,10 @@ IP tool è uno strumento per convertire indirizzi ip da Decimale a Binario e per
  14. [x] Supporto notazione CIDR
  15. [x] Controllare se 2 indirizzi ip appartengono alla stessa subnet
 ## Changelog
+#### 26-11-2021
+ 1. Aggiunta visualizzazione della Subnet Mask sul VLSM
+ 2. Aggiunto calcolo dell'ultimo host in base all'input
+ 3. Bug fix vari
 #### 25-11-2021
  1. Aggiunto supporto a Subnet Mask variabili.
  2. Separato il file header per creare le funzioni in 2 file header, 1 per tipo (FLSM, VLSM).
