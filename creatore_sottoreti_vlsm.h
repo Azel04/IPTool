@@ -139,7 +139,7 @@ void creatore_sottoreti_a_variabile(int *ip_dec_dot){
     for(i = 7 + cont_pot; i >= 8; i--){
       resto = ip.ip_bin_dot[i] * somma;
       ip.ip_bin_dot[i] = ip.ip_bin_dot[i] ^ somma;
-      ip.ip_bin_dot[i - 1] = ip.ip_bin_dot[i - 1] + resto;
+      ip.ip_bin_dot[i - 1] = ip.ip_bin_dot[i - 1] ^ resto;
       somma = 0;
     }
   }
@@ -273,7 +273,7 @@ void creatore_sottoreti_b_variabile(int *ip_dec_dot){
     for(i = 15 + cont_pot; i >= 16; i--){
       resto = ip.ip_bin_dot[i] * somma;
       ip.ip_bin_dot[i] = ip.ip_bin_dot[i] ^ somma;
-      ip.ip_bin_dot[i - 1] = ip.ip_bin_dot[i - 1] + resto;
+      ip.ip_bin_dot[i - 1] = ip.ip_bin_dot[i - 1] ^ resto;
       somma = 0;
     }
   }
@@ -400,7 +400,7 @@ void creatore_sottoreti_c_variabile(int *ip_dec_dot){
     for(i = 23 + cont_pot; i >= 24; i--){
       resto = ip.ip_bin_dot[i] * somma;
       ip.ip_bin_dot[i] = ip.ip_bin_dot[i] ^ somma;
-      ip.ip_bin_dot[i - 1] = ip.ip_bin_dot[i - 1] + resto;
+      ip.ip_bin_dot[i - 1] = ip.ip_bin_dot[i - 1] ^ resto;
       somma = 0;
     }
   }
