@@ -249,7 +249,7 @@ void creatore_sottoreti_c(int *ip_dec_dot){
 
   ip.net_id = 0;
     
-  printf("\tNETWORK ID\tBROADCAST\t\tGATEWAY\tPRIMO HOST\tULTIMO HOST\n");
+  printf("\tNETWORK ID\tBROADCAST\tGATEWAY\t\tPRIMO HOST\tULTIMO HOST\n");
   for(cont = 0; cont < num_sottoreti; cont++){
     ip.broadcast = ip.net_id + intervallo - 1;
     ip.gateway = ip.net_id + 1;
