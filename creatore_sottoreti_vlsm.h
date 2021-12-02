@@ -1,9 +1,9 @@
-void creatore_sottoreti_c_variabile(int *ip_dec_dot);
-void creatore_sottoreti_b_variabile(int *ip_dec_dot);
-void creatore_sottoreti_a_variabile(int *ip_dec_dot);
+void creatore_sottoreti_c_variabile(int *ip_dec);
+void creatore_sottoreti_b_variabile(int *ip_dec);
+void creatore_sottoreti_a_variabile(int *ip_dec);
 
 typedef struct{
-  int ip_bin_dot[32];
+  int ip_bin[32];
   int ip_gateway[4];
   int subnet_mask_bin[32];
   int subnet_mask_dec[4];
@@ -16,7 +16,7 @@ typedef struct{
   int host;
 }indirizzi_vlsm;
 
-void creatore_sottoreti_a_variabile(int *ip_dec_dot){
+void creatore_sottoreti_a_variabile(int *ip_dec){
   indirizzi_vlsm ip;
   int somma;
   int resto;
@@ -24,7 +24,7 @@ void creatore_sottoreti_a_variabile(int *ip_dec_dot){
   int num_sottoreti;
   int bit_host[64];
   int ip_temp[32];
-  int clone_ip_dec_dot[4];
+  int clone_ip_dec[4];
   int somma_host;
   int i;
   int j;
@@ -36,9 +36,9 @@ void creatore_sottoreti_a_variabile(int *ip_dec_dot){
   int cont_host;
   int max_sottoreti;
   max_sottoreti = pow(2, 7);
-  ip_dec_dot[3] = 0;
-  ip_dec_dot[2] = 0;
-  ip_dec_dot[1] = 0;
+  ip_dec[3] = 0;
+  ip_dec[2] = 0;
+  ip_dec[1] = 0;
   somma_host = 0;
   for(i = 0; i < 32; i++){
     if(i < 8){
@@ -94,45 +94,45 @@ void creatore_sottoreti_a_variabile(int *ip_dec_dot){
   printf("\tNETWORK ID\tGATEWAY\t\tBROADCAST\tPRIMO HOST\tULTIMO HOST\tSUBNET MASK\n");
   cont_bit = 0;
   cont_pot = 24 - bit_host[cont_bit];
-  conversione_decimale_binario(ip_dec_dot, ip.ip_bin_dot);
+  conversione_decimale_binario(ip_dec, ip.ip_bin);
   for(cont = 0; cont < num_sottoreti; cont++){
     cont_pot = 24 - bit_host[cont_bit];
     for(i = 0; i < 32; i++){
-      ip_temp[i] = ip.ip_bin_dot[i];
+      ip_temp[i] = ip.ip_bin[i];
     }
     for(i = 7 + (cont_pot + 1); i < 32; i++){
       ip_temp[i] = 0;
     }
-    conversione_binario_decimale(ip_dec_dot, ip.ip_bin_dot);
+    conversione_binario_decimale(ip_dec, ip.ip_bin);
     printf("%d)\t", cont + 1);
-    printf("%d.%d.%d.%d\t", ip_dec_dot[0], ip_dec_dot[1], ip_dec_dot[2], ip_dec_dot[3]);
+    printf("%d.%d.%d.%d\t", ip_dec[0], ip_dec[1], ip_dec[2], ip_dec[3]);
     for(i = 0; i < 32; i++){
-      ip_temp[i] = ip.ip_bin_dot[i];
+      ip_temp[i] = ip.ip_bin[i];
     }
     ip_temp[31] = 1;
-    conversione_binario_decimale(ip_dec_dot, ip_temp);
-    ip.range[0] = ip_dec_dot[3] + 1;
-    printf("%d.%d.%d.%d\t", ip_dec_dot[0], ip_dec_dot[1], ip_dec_dot[2], ip_dec_dot[3]);
-    ip.ip_gateway[0] = ip_dec_dot[0];
-    ip.ip_gateway[1] = ip_dec_dot[1];
-    ip.ip_gateway[2] = ip_dec_dot[2];
-    ip.ip_gateway[3] = ip_dec_dot[3];
+    conversione_binario_decimale(ip_dec, ip_temp);
+    ip.range[0] = ip_dec[3] + 1;
+    printf("%d.%d.%d.%d\t", ip_dec[0], ip_dec[1], ip_dec[2], ip_dec[3]);
+    ip.ip_gateway[0] = ip_dec[0];
+    ip.ip_gateway[1] = ip_dec[1];
+    ip.ip_gateway[2] = ip_dec[2];
+    ip.ip_gateway[3] = ip_dec[3];
     for(i = 0; i < 32; i++){
-      ip_temp[i] = ip.ip_bin_dot[i];
+      ip_temp[i] = ip.ip_bin[i];
     }
     for(i = 7 + (cont_pot + 1); i < 32; i++){
       ip_temp[i] = 1;
     }  
-    conversione_binario_decimale(ip_dec_dot, ip_temp);
-    printf("%d.%d.%d.%d\t", ip_dec_dot[0], ip_dec_dot[1], ip_dec_dot[2], ip_dec_dot[3]);
+    conversione_binario_decimale(ip_dec, ip_temp);
+    printf("%d.%d.%d.%d\t", ip_dec[0], ip_dec[1], ip_dec[2], ip_dec[3]);
     conversione_decimale_binario_semplice((host_sottorete[cont_host] - 3) + ip.range[0], ip.numero_sottorete_bin);
     for(i = 31; i > 31 - bit_host[cont_bit]; i--){
       ip_temp[i] = ip.numero_sottorete_bin[i];
     }
     cont_host++;
-    conversione_binario_decimale(ip_dec_dot, ip_temp);
+    conversione_binario_decimale(ip_dec, ip_temp);
     printf("%d.%d.%d.%d\t", ip.ip_gateway[0], ip.ip_gateway[1], ip.ip_gateway[2], ip.range[0]);
-    printf("%d.%d.%d.%d\t", ip_dec_dot[0], ip_dec_dot[1], ip_dec_dot[2], ip_dec_dot[3]);
+    printf("%d.%d.%d.%d\t", ip_dec[0], ip_dec[1], ip_dec[2], ip_dec[3]);
     for(i = 8; i <= 31 - bit_host[cont_bit]; i++){
       ip.subnet_mask_bin[i] = 1;
     }
@@ -146,16 +146,16 @@ void creatore_sottoreti_a_variabile(int *ip_dec_dot){
     resto = 0;
     somma = 1;
     for(i = 7 + cont_pot; i >= 8; i--){
-      resto = ip.ip_bin_dot[i] * somma;
-      ip.ip_bin_dot[i] = ip.ip_bin_dot[i] ^ somma;
-      ip.ip_bin_dot[i - 1] = ip.ip_bin_dot[i - 1] ^ resto;
+      resto = ip.ip_bin[i] * somma;
+      ip.ip_bin[i] = ip.ip_bin[i] ^ somma;
+      ip.ip_bin[i - 1] = ip.ip_bin[i - 1] ^ resto;
       somma = 0;
     }
   }
 
 }
 
-void creatore_sottoreti_b_variabile(int *ip_dec_dot){
+void creatore_sottoreti_b_variabile(int *ip_dec){
   indirizzi_vlsm ip;
   int somma;
   int resto;
@@ -163,7 +163,7 @@ void creatore_sottoreti_b_variabile(int *ip_dec_dot){
   int num_sottoreti;
   int bit_host[64];
   int ip_temp[32];
-  int clone_ip_dec_dot[4];
+  int clone_ip_dec[4];
   int somma_host;
   int i;
   int j;
@@ -175,8 +175,8 @@ void creatore_sottoreti_b_variabile(int *ip_dec_dot){
   int cont_host;
   int max_sottoreti;
   max_sottoreti = pow(2, 14);
-  ip_dec_dot[3] = 0;
-  ip_dec_dot[2] = 0;
+  ip_dec[3] = 0;
+  ip_dec[2] = 0;
   somma_host = 0;
   for(i = 0; i < 32; i++){
     if(i < 16){
@@ -230,47 +230,47 @@ void creatore_sottoreti_b_variabile(int *ip_dec_dot){
   printf("\tNETWORK ID\tGATEWAY\t\tBROADCAST\tPRIMO HOST\tULTIMO HOST\tSUBNET MASK\n");
   cont_bit = 0;
   cont_pot = 16 - bit_host[cont_bit];
-  conversione_decimale_binario(ip_dec_dot, ip.ip_bin_dot);
+  conversione_decimale_binario(ip_dec, ip.ip_bin);
   j = 0;
   cont_host = 0;
   for(cont = 0; cont < num_sottoreti; cont++){
     cont_pot = 16 - bit_host[cont_bit];
     for(i = 0; i < 32; i++){
-      ip_temp[i] = ip.ip_bin_dot[i];
+      ip_temp[i] = ip.ip_bin[i];
     }
     for(i = 15 + (cont_pot + 1); i < 32; i++){
       ip_temp[i] = 0;
     }
-    conversione_binario_decimale(ip_dec_dot, ip.ip_bin_dot);
+    conversione_binario_decimale(ip_dec, ip.ip_bin);
     printf("%d)\t", cont + 1);
-    printf("%d.%d.%d.%d\t", ip_dec_dot[0], ip_dec_dot[1], ip_dec_dot[2], ip_dec_dot[3]);
+    printf("%d.%d.%d.%d\t", ip_dec[0], ip_dec[1], ip_dec[2], ip_dec[3]);
     for(i = 0; i < 32; i++){
-      ip_temp[i] = ip.ip_bin_dot[i];
+      ip_temp[i] = ip.ip_bin[i];
     }
     ip_temp[31] = 1;
-    conversione_binario_decimale(ip_dec_dot, ip_temp);
-    ip.range[0] = ip_dec_dot[3] + 1;
-    printf("%d.%d.%d.%d\t", ip_dec_dot[0], ip_dec_dot[1], ip_dec_dot[2], ip_dec_dot[3]);
-    ip.ip_gateway[0] = ip_dec_dot[0];
-    ip.ip_gateway[1] = ip_dec_dot[1];
-    ip.ip_gateway[2] = ip_dec_dot[2];
-    ip.ip_gateway[3] = ip_dec_dot[3];
+    conversione_binario_decimale(ip_dec, ip_temp);
+    ip.range[0] = ip_dec[3] + 1;
+    printf("%d.%d.%d.%d\t", ip_dec[0], ip_dec[1], ip_dec[2], ip_dec[3]);
+    ip.ip_gateway[0] = ip_dec[0];
+    ip.ip_gateway[1] = ip_dec[1];
+    ip.ip_gateway[2] = ip_dec[2];
+    ip.ip_gateway[3] = ip_dec[3];
     for(i = 0; i < 32; i++){
-      ip_temp[i] = ip.ip_bin_dot[i];
+      ip_temp[i] = ip.ip_bin[i];
     }
     for(i = 15 + (cont_pot + 1); i < 32; i++){
       ip_temp[i] = 1;
     }  
-    conversione_binario_decimale(ip_dec_dot, ip_temp);
-    printf("%d.%d.%d.%d\t", ip_dec_dot[0], ip_dec_dot[1], ip_dec_dot[2], ip_dec_dot[3]);
+    conversione_binario_decimale(ip_dec, ip_temp);
+    printf("%d.%d.%d.%d\t", ip_dec[0], ip_dec[1], ip_dec[2], ip_dec[3]);
     conversione_decimale_binario_semplice((host_sottorete[cont_host] - 3) + ip.range[0], ip.numero_sottorete_bin);
     for(i = 31; i > 31 - bit_host[cont_bit]; i--){
       ip_temp[i] = ip.numero_sottorete_bin[i];
     }
-    conversione_binario_decimale(ip_dec_dot, ip_temp);
+    conversione_binario_decimale(ip_dec, ip_temp);
     cont_host++;
     printf("%d.%d.%d.%d\t", ip.ip_gateway[0], ip.ip_gateway[1], ip.ip_gateway[2], ip.range[0]);
-    printf("%d.%d.%d.%d\t", ip_dec_dot[0], ip_dec_dot[1], ip_dec_dot[2], ip_dec_dot[3]);
+    printf("%d.%d.%d.%d\t", ip_dec[0], ip_dec[1], ip_dec[2], ip_dec[3]);
     for(i = 16; i <= 31 - bit_host[cont_bit]; i++){
       ip.subnet_mask_bin[i] = 1;
     }
@@ -280,7 +280,7 @@ void creatore_sottoreti_b_variabile(int *ip_dec_dot){
     
     k = 31;
     for(i = 15 + cont_pot - 1; j < cont_pot - 1; j++){
-      ip.ip_bin_dot[i] = ip.numero_sottorete_bin[k];
+      ip.ip_bin[i] = ip.numero_sottorete_bin[k];
       k--;
       i--;
     }
@@ -289,16 +289,16 @@ void creatore_sottoreti_b_variabile(int *ip_dec_dot){
     resto = 0;
     somma = 1;
     for(i = 15 + cont_pot; i >= 16; i--){
-      resto = ip.ip_bin_dot[i] * somma;
-      ip.ip_bin_dot[i] = ip.ip_bin_dot[i] ^ somma;
-      ip.ip_bin_dot[i - 1] = ip.ip_bin_dot[i - 1] ^ resto;
+      resto = ip.ip_bin[i] * somma;
+      ip.ip_bin[i] = ip.ip_bin[i] ^ somma;
+      ip.ip_bin[i - 1] = ip.ip_bin[i - 1] ^ resto;
       somma = 0;
     }
   }
 }
 
 
-void creatore_sottoreti_c_variabile(int *ip_dec_dot){
+void creatore_sottoreti_c_variabile(int *ip_dec){
   indirizzi_vlsm ip;
   int somma;
   int resto;
@@ -306,7 +306,7 @@ void creatore_sottoreti_c_variabile(int *ip_dec_dot){
   int num_sottoreti;
   int bit_host[64];
   int ip_temp[32];
-  int clone_ip_dec_dot[4];
+  int clone_ip_dec[4];
   int somma_host;
   int i;
   int j;
@@ -318,7 +318,7 @@ void creatore_sottoreti_c_variabile(int *ip_dec_dot){
   int cont_host;
   int max_sottoreti;
   max_sottoreti = pow(2, 21);
-  ip_dec_dot[3] = 0;
+  ip_dec[3] = 0;
   somma_host = 0;
   for(i = 0; i < 32; i++){
     if(i < 24){
@@ -368,47 +368,47 @@ void creatore_sottoreti_c_variabile(int *ip_dec_dot){
   printf("\tNETWORK ID\tGATEWAY\t\tBROADCAST\tPRIMO HOST\tULTIMO HOST\tSUBNET MASK\n");
   cont_bit = 0;
   cont_pot = 8 - bit_host[cont_bit];
-  conversione_decimale_binario(ip_dec_dot, ip.ip_bin_dot);
+  conversione_decimale_binario(ip_dec, ip.ip_bin);
   j = 0;
   cont_host = 0;
   for(cont = 0; cont < num_sottoreti; cont++){
     cont_pot = 8 - bit_host[cont_bit];
     for(i = 0; i < 32; i++){
-      ip_temp[i] = ip.ip_bin_dot[i];
+      ip_temp[i] = ip.ip_bin[i];
     }
     for(i = 23 + (cont_pot + 1); i < 32; i++){
       ip_temp[i] = 0;
     }
-    conversione_binario_decimale(ip_dec_dot, ip.ip_bin_dot);
+    conversione_binario_decimale(ip_dec, ip.ip_bin);
     printf("%d)\t", cont + 1);
-    printf("%d.%d.%d.%d\t", ip_dec_dot[0], ip_dec_dot[1], ip_dec_dot[2], ip_dec_dot[3]);
+    printf("%d.%d.%d.%d\t", ip_dec[0], ip_dec[1], ip_dec[2], ip_dec[3]);
     for(i = 0; i < 32; i++){
-      ip_temp[i] = ip.ip_bin_dot[i];
+      ip_temp[i] = ip.ip_bin[i];
     }
     ip_temp[31] = 1;
-    conversione_binario_decimale(ip_dec_dot, ip_temp);
-    ip.range[0] = ip_dec_dot[3] + 1;
-    printf("%d.%d.%d.%d\t", ip_dec_dot[0], ip_dec_dot[1], ip_dec_dot[2], ip_dec_dot[3]);
-    ip.ip_gateway[0] = ip_dec_dot[0];
-    ip.ip_gateway[1] = ip_dec_dot[1];
-    ip.ip_gateway[2] = ip_dec_dot[2];
-    ip.ip_gateway[3] = ip_dec_dot[3];
+    conversione_binario_decimale(ip_dec, ip_temp);
+    ip.range[0] = ip_dec[3] + 1;
+    printf("%d.%d.%d.%d\t", ip_dec[0], ip_dec[1], ip_dec[2], ip_dec[3]);
+    ip.ip_gateway[0] = ip_dec[0];
+    ip.ip_gateway[1] = ip_dec[1];
+    ip.ip_gateway[2] = ip_dec[2];
+    ip.ip_gateway[3] = ip_dec[3];
     for(i = 0; i < 32; i++){
-      ip_temp[i] = ip.ip_bin_dot[i];
+      ip_temp[i] = ip.ip_bin[i];
     }
     for(i = 23 + (cont_pot + 1); i < 32; i++){
       ip_temp[i] = 1;
     }  
-    conversione_binario_decimale(ip_dec_dot, ip_temp);
-    printf("%d.%d.%d.%d\t", ip_dec_dot[0], ip_dec_dot[1], ip_dec_dot[2], ip_dec_dot[3]);
+    conversione_binario_decimale(ip_dec, ip_temp);
+    printf("%d.%d.%d.%d\t", ip_dec[0], ip_dec[1], ip_dec[2], ip_dec[3]);
     conversione_decimale_binario_semplice((host_sottorete[cont_host] - 3) + ip.range[0], ip.numero_sottorete_bin);
     for(i = 31; i > 31 - bit_host[cont_bit]; i--){
       ip_temp[i] = ip.numero_sottorete_bin[i];
     }
     cont_host++;
-    conversione_binario_decimale(ip_dec_dot, ip_temp);
+    conversione_binario_decimale(ip_dec, ip_temp);
     printf("%d.%d.%d.%d\t", ip.ip_gateway[0], ip.ip_gateway[1], ip.ip_gateway[2], ip.range[0]);
-    printf("%d.%d.%d.%d\t", ip_dec_dot[0], ip_dec_dot[1], ip_dec_dot[2], ip_dec_dot[3]);
+    printf("%d.%d.%d.%d\t", ip_dec[0], ip_dec[1], ip_dec[2], ip_dec[3]);
     for(i = 24; i <= 23 + (8 - bit_host[cont_bit]); i++){
       ip.subnet_mask_bin[i] = 1;
     }
@@ -421,9 +421,9 @@ void creatore_sottoreti_c_variabile(int *ip_dec_dot){
     resto = 0;
     somma = 1;
     for(i = 23 + cont_pot; i >= 24; i--){
-      resto = ip.ip_bin_dot[i] * somma;
-      ip.ip_bin_dot[i] = ip.ip_bin_dot[i] ^ somma;
-      ip.ip_bin_dot[i - 1] = ip.ip_bin_dot[i - 1] ^ resto;
+      resto = ip.ip_bin[i] * somma;
+      ip.ip_bin[i] = ip.ip_bin[i] ^ somma;
+      ip.ip_bin[i - 1] = ip.ip_bin[i - 1] ^ resto;
       somma = 0;
     }
   }

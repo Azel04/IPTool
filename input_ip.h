@@ -1,12 +1,12 @@
 
 
-void input_ip(int *ip_dec_dot){
+void input_ip(int *ip_dec){
 	int i;
     for(i = 0; i < 4; i++){
       do{
           printf("Inserisci la cifra numero %d dell'indirizzo ipv4 in decimale: ", i + 1);
-          scanf("%d", &ip_dec_dot[i]);
-      }while(ip_dec_dot[i] < 0 || ip_dec_dot[i] > 255);
+          scanf("%d", &ip_dec[i]);
+      }while(ip_dec[i] < 0 || ip_dec[i] > 255);
     }	
 }
 void input_subnet_mask(int *subnet_mask){

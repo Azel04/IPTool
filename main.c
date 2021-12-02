@@ -14,8 +14,8 @@
 #include "controllo_stessa_subnet.h"
 
 int main(){
-	int ip_bin_dot[32];
-	int ip_dec_dot[4];
+	int ip_bin[32];
+	int ip_dec[4];
 	int scelta;
 	int fine;
 	int tipo;
@@ -31,42 +31,42 @@ int main(){
 		scanf("%d", &scelta);
 		switch(scelta){
 			case 1:
-				input_ip(ip_dec_dot);
+				input_ip(ip_dec);
     			printf("L'indirizzo inserito e' il seguente: ");
-    			output_ip_dec(ip_dec_dot);	
+    			output_ip_dec(ip_dec);	
 				printf("\n");
-				controllo_tipo_ip(ip_dec_dot);
-				conversione_decimale_binario(ip_dec_dot, ip_bin_dot);
+				controllo_tipo_ip(ip_dec);
+				conversione_decimale_binario(ip_dec, ip_bin);
     			printf("\nL'indirizzo ip in binario e' il seguente: \n");
-				output_ip_bin(ip_bin_dot);
+				output_ip_bin(ip_bin);
 				break;
 			case 2:
-				input_ip(ip_dec_dot);
- 				tipo = controllo_tipo_ip_sottorete(ip_dec_dot);
+				input_ip(ip_dec);
+ 				tipo = controllo_tipo_ip_sottorete(ip_dec);
 				switch(tipo){
 					case 0:
-						creatore_sottoreti_a(ip_dec_dot);
+						creatore_sottoreti_a(ip_dec);
 						break;
 					case 1:
-						creatore_sottoreti_b(ip_dec_dot);
+						creatore_sottoreti_b(ip_dec);
 						break;
 					case 2:
-						creatore_sottoreti_c(ip_dec_dot);
+						creatore_sottoreti_c(ip_dec);
 						break;
 				}
 				break;
 			case 3:
-				input_ip(ip_dec_dot);
- 				tipo = controllo_tipo_ip_sottorete(ip_dec_dot);
+				input_ip(ip_dec);
+ 				tipo = controllo_tipo_ip_sottorete(ip_dec);
 				switch(tipo){
 					case 0:
-						creatore_sottoreti_a_variabile(ip_dec_dot);
+						creatore_sottoreti_a_variabile(ip_dec);
 						break;
 					case 1:
-						creatore_sottoreti_b_variabile(ip_dec_dot);
+						creatore_sottoreti_b_variabile(ip_dec);
 						break;
 					case 2:
-						creatore_sottoreti_c_variabile(ip_dec_dot);
+						creatore_sottoreti_c_variabile(ip_dec);
 						break;
 				}	
 				break;			

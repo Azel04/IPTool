@@ -1,4 +1,4 @@
-void conversione_decimale_binario(int *ip_dec_dot, int *ip_bin_dot){
+void conversione_decimale_binario(int *ip_dec, int *ip_bin){
 	int i;
 	int j;
 	int k;
@@ -8,8 +8,8 @@ void conversione_decimale_binario(int *ip_dec_dot, int *ip_bin_dot){
     k = 0;
     do{
         do{
-            ip_bin_dot[j] = ip_dec_dot[i] % 2;
-            ip_dec_dot[i] = ip_dec_dot[i] / 2;
+            ip_bin[j] = ip_dec[i] % 2;
+            ip_dec[i] = ip_dec[i] / 2;
             j--;
             k++;
         }while(k < 8);
