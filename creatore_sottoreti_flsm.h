@@ -249,15 +249,15 @@ void creatore_sottoreti_c(int *ip_dec_dot){
 
   ip.net_id = 0;
     
-  printf("\tNETWORK ID\tBROADCAST\tGATEWAY\t\tPRIMO HOST\tULTIMO HOST\n");
+  printf("\tNETWORK ID\tGATEWAY\t\tBROADCAST\tPRIMO HOST\tULTIMO HOST\n");
   for(cont = 0; cont < num_sottoreti; cont++){
     ip.broadcast = ip.net_id + intervallo - 1;
     ip.gateway = ip.net_id + 1;
     ip.range[0] = ip.gateway + 1;
     ip.range[1] = ip.broadcast - 1;
 		printf("%d)\t%d.%d.%d.%03d", cont + 1, ip_dec_dot[0], ip_dec_dot[1], ip_dec_dot[2], ip_dec_dot[3]);
+    printf("\t%d.%d.%d.%03d", ip_dec_dot[0], ip_dec_dot[1], ip_dec_dot[2], ip.gateway);
 		printf("\t%d.%d.%d.%03d", ip_dec_dot[0], ip_dec_dot[1], ip_dec_dot[2], ip.broadcast);
-		printf("\t%d.%d.%d.%03d", ip_dec_dot[0], ip_dec_dot[1], ip_dec_dot[2], ip.gateway);
 		printf("\t%d.%d.%d.%03d", ip_dec_dot[0], ip_dec_dot[1], ip_dec_dot[2], ip.range[0]);
 		printf("\t%d.%d.%d.%03d\n", ip_dec_dot[0], ip_dec_dot[1], ip_dec_dot[2], ip.range[1]);		
     printf("\t");
