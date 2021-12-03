@@ -12,6 +12,7 @@
 #include "creatore_sottoreti_flsm.h"
 #include "creatore_sottoreti_vlsm.h"
 #include "controllo_stessa_subnet.h"
+#include "clearscreen.h"
 
 int main(){
 	int ip_bin[32];
@@ -25,7 +26,7 @@ int main(){
 	sleep(2);
 	printf("\n\tUn programma creato da Jacopo Rossetti\n");
 	sleep(2);
-	printf("\e[1;1H\e[2J"); //Pulizia schermo
+	clearscreen(); //Pulizia schermo
 	do{
 		printf("1) Inserisci un indirizzo ipv4 e calcolane la sua classe e il suo corrispettivo ip in binario\n2) Crea un numero di sottoreti a tua scelta con la FLSM\n3) Crea un numero di sottoreti a tua scelta con la VLSM\n4) Verifica se 2 indirizzi appartengono alla stessa subnet\n5) Fine\nFai la tua scelta: ");
 		scanf("%d", &scelta);
@@ -84,7 +85,7 @@ int main(){
 		getchar();
 		printf("Premi un tasto per continuare...\n");
 		getchar();
-		printf("\e[1;1H\e[2J"); //Pulizia schermo
+		clearscreen(); //Pulizia schermo
 	}while(fine == 0);
 
     return 0;
