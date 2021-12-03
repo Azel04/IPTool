@@ -20,7 +20,7 @@ void creatore_sottoreti_a_variabile(int *ip_dec){
   indirizzi_vlsm ip;
   int somma;
   int resto;
-  int host_sottorete[64];
+  int host_sottorete[4194304];
   int num_sottoreti;
   int bit_host[64];
   int ip_temp[32];
@@ -35,7 +35,7 @@ void creatore_sottoreti_a_variabile(int *ip_dec){
   int cont_bit;
   int cont_host;
   int max_sottoreti;
-  max_sottoreti = pow(2, 7);
+  max_sottoreti = pow(2, 22);
   ip_dec[3] = 0;
   ip_dec[2] = 0;
   ip_dec[1] = 0;
@@ -51,7 +51,7 @@ void creatore_sottoreti_a_variabile(int *ip_dec){
   do{
     printf("Inserisci il numero di sottoreti (MAX %d): ", max_sottoreti);
     scanf("%d", &num_sottoreti);
-  }while(num_sottoreti > pow(2, 7) || num_sottoreti < 0);
+  }while(num_sottoreti > max_sottoreti || num_sottoreti < 0);
 
   for(i = 0; i < num_sottoreti; i++){
     do{
@@ -159,7 +159,7 @@ void creatore_sottoreti_b_variabile(int *ip_dec){
   indirizzi_vlsm ip;
   int somma;
   int resto;
-  int host_sottorete[64];
+  int host_sottorete[16384];
   int num_sottoreti;
   int bit_host[64];
   int ip_temp[32];
