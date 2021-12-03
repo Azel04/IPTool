@@ -63,7 +63,7 @@ void creatore_sottoreti_a_variabile(int *ip_dec){
     somma_host = somma_host + host_sottorete[i];
   }
   if(somma_host > 8388608){
-    printf("Non e' possibile completare la tua richiesta");
+    printf("Non e' possibile completare la tua richiesta\n");
     return;
   }
   for(i = 0; i < num_sottoreti; i++){
@@ -195,7 +195,7 @@ void creatore_sottoreti_b_variabile(int *ip_dec){
     somma_host = somma_host + host_sottorete[i];
   }
   if(somma_host > 32768){
-    printf("Non e' possibile completare la tua richiesta");
+    printf("Non e' possibile completare la tua richiesta\n");
     return;
   }
   for(i = 0; i < num_sottoreti; i++){
@@ -218,10 +218,6 @@ void creatore_sottoreti_b_variabile(int *ip_dec){
   }
   for(i = 0; i < num_sottoreti; i++){
     bit_host[i] = log2(host_sottorete[i]) + 1;
-  }
-  if(num_sottoreti > 2 && bit_host[0] == 15 && bit_host[1] == 15){
-    printf("Non e' possibile soddisfare la tua richiesta\n");
-    return;
   }
   printf("Ecco l'ordine delle reti:\n");
   for(i = 0; i < num_sottoreti; i++){
@@ -343,7 +339,7 @@ void creatore_sottoreti_c_variabile(int *ip_dec){
     somma_host = somma_host + host_sottorete[i];
   }
   if(somma_host > 128){
-    printf("Non e' possibile completare la tua richiesta");
+    printf("Non e' possibile completare la tua richiesta\n");
     return;
   }
   for(i = 0; i < num_sottoreti; i++){
