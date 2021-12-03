@@ -49,7 +49,7 @@ void creatore_sottoreti_a_variabile(int *ip_dec){
     }
   }
   do{
-    printf("Inserisci il numero di sottoreti (MAX %ld): ", max_sottoreti);
+    printf("Inserisci il numero di sottoreti (MAX %d): ", max_sottoreti);
     scanf("%d", &num_sottoreti);
   }while(num_sottoreti > pow(2, 7) || num_sottoreti < 0);
 
@@ -125,7 +125,7 @@ void creatore_sottoreti_a_variabile(int *ip_dec){
     }  
     conversione_binario_decimale(ip_dec, ip_temp);
     printf("%d.%d.%d.%d\t", ip_dec[0], ip_dec[1], ip_dec[2], ip_dec[3]);
-    conversione_decimale_binario_semplice((host_sottorete[cont_host] - 3) + ip.range[0], ip.numero_sottorete_bin);
+    conversione_decimale_binario_semplice((host_sottorete[cont_host] - 3), ip.numero_sottorete_bin);
     for(i = 31; i > 31 - bit_host[cont_bit]; i--){
       ip_temp[i] = ip.numero_sottorete_bin[i];
     }
@@ -187,7 +187,7 @@ void creatore_sottoreti_b_variabile(int *ip_dec){
     }
   }
   do{
-    printf("Inserisci il numero di sottoreti (MAX %ld): ", max_sottoreti);
+    printf("Inserisci il numero di sottoreti (MAX %d): ", max_sottoreti);
     scanf("%d", &num_sottoreti);
   }while(num_sottoreti > pow(2, 14) || num_sottoreti < 0);
 
@@ -263,7 +263,7 @@ void creatore_sottoreti_b_variabile(int *ip_dec){
     }  
     conversione_binario_decimale(ip_dec, ip_temp);
     printf("%d.%d.%d.%d\t", ip_dec[0], ip_dec[1], ip_dec[2], ip_dec[3]);
-    conversione_decimale_binario_semplice((host_sottorete[cont_host] - 3) + ip.range[0], ip.numero_sottorete_bin);
+    conversione_decimale_binario_semplice((host_sottorete[cont_host] - 3), ip.numero_sottorete_bin);
     for(i = 31; i > 31 - bit_host[cont_bit]; i--){
       ip_temp[i] = ip.numero_sottorete_bin[i];
     }
@@ -329,9 +329,9 @@ void creatore_sottoreti_c_variabile(int *ip_dec){
     }
   }
   do{
-    printf("Inserisci il numero di sottoreti (MAX %ld): ", max_sottoreti);
+    printf("Inserisci il numero di sottoreti (MAX 64): ", max_sottoreti);
     scanf("%d", &num_sottoreti);
-  }while(num_sottoreti > pow(2, 21) || num_sottoreti < 0);
+  }while(num_sottoreti > 64 || num_sottoreti < 0);
 
   for(i = 0; i < num_sottoreti; i++){
     do{
@@ -401,7 +401,7 @@ void creatore_sottoreti_c_variabile(int *ip_dec){
     }  
     conversione_binario_decimale(ip_dec, ip_temp);
     printf("%d.%d.%d.%d\t", ip_dec[0], ip_dec[1], ip_dec[2], ip_dec[3]);
-    conversione_decimale_binario_semplice((host_sottorete[cont_host] - 3) + ip.range[0], ip.numero_sottorete_bin);
+    conversione_decimale_binario_semplice((host_sottorete[cont_host] - 3), ip.numero_sottorete_bin);
     for(i = 31; i > 31 - bit_host[cont_bit]; i--){
       ip_temp[i] = ip.numero_sottorete_bin[i];
     }
