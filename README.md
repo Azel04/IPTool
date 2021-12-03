@@ -32,6 +32,8 @@ IP tool è uno strumento per convertire indirizzi ip da Decimale a Binario e per
 
 ## Changelog
 
+#### 03-12-2021
+ 1. Risolto il bug della pulizia dello schermo su Windows
 #### 02-12-2021
 
  1. Aggiunti controlli per verificare la possibilità di una richiesta sul VLSM
