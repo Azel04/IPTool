@@ -51,18 +51,18 @@ void creatore_sottoreti_a_variabile(int *ip_dec){
   do{
     printf("Inserisci il numero di sottoreti (MAX %d): ", max_sottoreti);
     scanf("%d", &num_sottoreti);
-  }while(num_sottoreti > max_sottoreti || num_sottoreti < 0);
+  }while(num_sottoreti > max_sottoreti || num_sottoreti <= 1);
 
   for(i = 0; i < num_sottoreti; i++){
     do{
       printf("Inserisci il numero di host della sottorete numero %d: ", i + 1);
       scanf("%d", &host_sottorete[i]);
-    }while(host_sottorete[i] <= 0 || host_sottorete[i] > pow(2, 24) - 2);
+    }while(host_sottorete[i] <= 0);
   }
   for(i = 0; i < num_sottoreti; i++){
     somma_host = somma_host + host_sottorete[i];
   }
-  if(somma_host > 8388608){
+  if(somma_host > pow(2, 24) - 2){
     printf("Non e' possibile completare la tua richiesta\n");
     return;
   }
@@ -80,10 +80,6 @@ void creatore_sottoreti_a_variabile(int *ip_dec){
   }
   for(i = 0; i < num_sottoreti; i++){
     bit_host[i] = log2(host_sottorete[i]) + 1;
-  }
-  if(num_sottoreti > 2 && bit_host[0] == 23 && bit_host[1] == 23){
-    printf("Non e' possibile soddisfare la tua richiesta\n");
-    return;
   }
   j = 0;
   cont_host = 0;
@@ -189,20 +185,19 @@ void creatore_sottoreti_b_variabile(int *ip_dec){
   do{
     printf("Inserisci il numero di sottoreti (MAX %d): ", max_sottoreti);
     scanf("%d", &num_sottoreti);
-  }while(num_sottoreti > pow(2, 14) || num_sottoreti < 0);
-
-  for(i = 0; i < num_sottoreti; i++){
-    somma_host = somma_host + host_sottorete[i];
-  }
-  if(somma_host > 32768){
-    printf("Non e' possibile completare la tua richiesta\n");
-    return;
-  }
+  }while(num_sottoreti > pow(2, 14) || num_sottoreti <= 1);
   for(i = 0; i < num_sottoreti; i++){
     do{
       printf("Inserisci il numero di host della sottorete numero %d: ", i + 1);
       scanf("%d", &host_sottorete[i]);
-    }while(host_sottorete[i] <= 0 || host_sottorete[i] > pow(2, 16) - 2);
+    }while(host_sottorete[i] <= 0);
+  }
+  for(i = 0; i < num_sottoreti; i++){
+    somma_host = somma_host + host_sottorete[i];
+  }
+  if(somma_host > pow(2, 16) - 2){
+    printf("Non e' possibile completare la tua richiesta\n");
+    return;
   }
   for(i = 0; i < num_sottoreti; i++){
     for(j = i + 1; j < num_sottoreti; j++){
@@ -313,7 +308,7 @@ void creatore_sottoreti_c_variabile(int *ip_dec){
   int cont_bit;
   int cont_host;
   int max_sottoreti;
-  max_sottoreti = pow(2, 21);
+  max_sottoreti = pow(2, 6);
   ip_dec[3] = 0;
   somma_host = 0;
   for(i = 0; i < 32; i++){
@@ -327,13 +322,13 @@ void creatore_sottoreti_c_variabile(int *ip_dec){
   do{
     printf("Inserisci il numero di sottoreti (MAX 64): ", max_sottoreti);
     scanf("%d", &num_sottoreti);
-  }while(num_sottoreti > 64 || num_sottoreti < 0);
+  }while(num_sottoreti > 64 || num_sottoreti <= 1);
 
   for(i = 0; i < num_sottoreti; i++){
     do{
       printf("Inserisci il numero di host della sottorete numero %d: ", i + 1);
       scanf("%d", &host_sottorete[i]);
-    }while(host_sottorete[i] <= 0 || host_sottorete[i] > pow(2, 8) - 2);
+    }while(host_sottorete[i] <= 0);
   }
   for(i = 0; i < num_sottoreti; i++){
     somma_host = somma_host + host_sottorete[i];
