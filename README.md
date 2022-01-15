@@ -16,21 +16,15 @@ IP tool è un piccolo programma per la creazione di sottoreti con FLSM e VLSM.
 
 4. [x] Calcolo del NetID, Broadcast, Gateway, Range per indirizzi di classe B, dato il numero di sottoreti.
 
-9. [x] Calcolo NetID in binario per indirizzi di classe C
+5. [x] Riscrivere il codice utilizzando file header
 
-10. [ ] Calcolo NetID in binario per indirizzi di classe B
+6. [x] Supporto a Subnet Mask variabili
 
-11. [ ] Calcolo NetID in binario per indirizzi di classe A
+7. [x] Supporto notazione CIDR
 
-12. [x] Riscrivere il codice utilizzando file header
+8. [x] Controllare se 2 indirizzi ip appartengono alla stessa subnet
 
-13. [x] Supporto a Subnet Mask variabili
-
-14. [x] Supporto notazione CIDR
-
-15. [x] Controllare se 2 indirizzi ip appartengono alla stessa subnet
-
-16. [ ] Supporto al Supernetting
+9. [ ] Supporto al Supernetting
 
 ## Changelog
 #### 15-01-2022
