@@ -29,6 +29,7 @@ IP tool è un piccolo programma per la creazione di sottoreti con FLSM e VLSM.
 ## Changelog
 #### 15-01-2022
  1. Risolto un bug sull'output degli indirizzi in classe A sull'FLSM
+ 2. Prima release pubblica
 #### 08-01-2022
  1. Aggiunto output su file
  2. Bug fix vari
