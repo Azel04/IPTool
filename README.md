@@ -4,7 +4,7 @@
 
 # IPTool
 
-IP tool è uno strumento per convertire indirizzi ip da Decimale a Binario e per controllare se l'indirizzo è pubblico o privato.
+IP tool è un piccolo programma per la creazione di sottoreti con FLSM e VLSM.
 
   
 
