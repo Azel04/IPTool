@@ -30,7 +30,7 @@ IP tool è uno strumento per convertire indirizzi ip da Decimale a Binario e per
 
 15. [x] Controllare se 2 indirizzi ip appartengono alla stessa subnet
 
-16. [] Supporto al Supernetting
+16. [ ] Supporto al Supernetting
 
 ## Changelog
 #### 08-01-2022
