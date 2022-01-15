@@ -110,11 +110,7 @@ IP tool è uno strumento per convertire indirizzi ip da Decimale a Binario e per
 1. Prima versione
 
 ## Bug riconosciuti
-
-1. ~~Assenza di controlli per verificare la possibilità delle richieste sul VLSM~~ Risolto con l'update del 2 Dicembre (da testare)
-
-  
-
+Per il momento non ci sono bug riconosciuti da me, se trovate un bug segnalatemelo
 ## Istruzioni per la compilazione
 
 #### Linux:
