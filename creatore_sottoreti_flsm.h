@@ -65,14 +65,14 @@ void creatore_sottoreti_a(int *ip_dec){
     }
     conversione_binario_decimale(ip_dec, ip.ip_bin);
     printf("%d)\t", cont + 1);
-    printf("%d.%d.%d.%d\t", ip_dec[0], ip_dec[1], ip_dec[2], ip_dec[3]);
+    printf("%03d.%03d.%03d.%03d\t", ip_dec[0], ip_dec[1], ip_dec[2], ip_dec[3]);
     for(i = 0; i < 32; i++){
       ip_temp[i] = ip.ip_bin[i];
     }
     ip_temp[31] = 1;
     conversione_binario_decimale(ip_dec, ip_temp);
     ip.range[0] = ip_dec[3] + 1;
-    printf("%d.%d.%d.%d\t", ip_dec[0], ip_dec[1], ip_dec[2], ip_dec[3]);
+    printf("%03d.%03d.%03d.%03d\t", ip_dec[0], ip_dec[1], ip_dec[2], ip_dec[3]);
     ip.ip_gateway[0] = ip_dec[0];
     ip.ip_gateway[1] = ip_dec[1];
     ip.ip_gateway[2] = ip_dec[2];
@@ -84,10 +84,10 @@ void creatore_sottoreti_a(int *ip_dec){
       ip_temp[i] = 1;
     }  
     conversione_binario_decimale(ip_dec, ip_temp);
-    printf("%d.%d.%d.%d\t", ip_dec[0], ip_dec[1], ip_dec[2], ip_dec[3]);
+    printf("%03d.%03d.%03d.%03d\t", ip_dec[0], ip_dec[1], ip_dec[2], ip_dec[3]);
     ip.range[1] = ip_dec[3] - 1;
-    printf("%d.%d.%d.%d\t", ip.ip_gateway[0], ip.ip_gateway[1], ip.ip_gateway[2], ip.range[0]);
-    printf("%d.%d.%d.%d\t", ip_dec[0], ip_dec[1], ip_dec[2], ip.range[1]);
+    printf("%03d.%03d.%03d.%03d\t", ip.ip_gateway[0], ip.ip_gateway[1], ip.ip_gateway[2], ip.range[0]);
+    printf("%03d.%03d.%03d.%03d\t", ip_dec[0], ip_dec[1], ip_dec[2], ip.range[1]);
     conversione_decimale_binario_semplice(cont + 1, ip.numero_sottorete_bin);
     j = 0;
     k = 31;
