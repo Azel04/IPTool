@@ -33,6 +33,8 @@ IP tool è uno strumento per convertire indirizzi ip da Decimale a Binario e per
 16. [ ] Supporto al Supernetting
 
 ## Changelog
+#### 15-01-2022
+ 1. Risolto un bug sull'output degli indirizzi in classe A sull'FLSM
 #### 08-01-2022
  1. Aggiunto output su file
  2. Bug fix vari
