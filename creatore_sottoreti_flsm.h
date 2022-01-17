@@ -244,7 +244,7 @@ void creatore_sottoreti_c(int *ip_dec){
   do{
     pot2 = pow(2,cont_pot);
     cont_pot++;
-  }while(pot2 <= num_sottoreti);
+  }while(pot2 < num_sottoreti);
   intervallo = 256 / pot2;
 
   ip.net_id = 0;
