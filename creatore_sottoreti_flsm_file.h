@@ -99,7 +99,7 @@ void creatore_sottoreti_a_file(int *ip_dec){
       k--;
       i--;
     }
-    fprintf(fp, "\n\n");
+    fprintf(fp, "\n");
   }
   ip.host_per_sottorete = 0;
   ip.host_per_sottorete = pow(2, (32 - (8 + (cont_pot - 1)))) - 1;
@@ -270,7 +270,6 @@ void creatore_sottoreti_c_file(int *ip_dec){
 		fprintf(fp, "\t%03d.%03d.%03d.%03d", ip_dec[0], ip_dec[1], ip_dec[2], ip.range[0]);
 		fprintf(fp, "\t%03d.%03d.%03d.%03d\n", ip_dec[0], ip_dec[1], ip_dec[2], ip.range[1]);		
     fprintf(fp, "\t");
-    conversione_decimale_binario(ip_dec, ip.ip_bin);
     ip.net_id = ip.net_id + intervallo;
     ip_dec[3] = ip.net_id;
     for(cont2 = 0; cont2 < 3; cont2++){

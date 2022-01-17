@@ -261,15 +261,13 @@ void creatore_sottoreti_c(int *ip_dec){
 		printf("\t%d.%d.%d.%03d", ip_dec[0], ip_dec[1], ip_dec[2], ip.range[0]);
 		printf("\t%d.%d.%d.%03d\n", ip_dec[0], ip_dec[1], ip_dec[2], ip.range[1]);		
     printf("\t");
-    conversione_decimale_binario(ip_dec, ip.ip_bin);
-    output_ip_bin_sottorete_c(ip.ip_bin, (8 - intervallo_pot));
     ip.net_id = ip.net_id + intervallo;
     ip_dec[3] = ip.net_id;
     for(cont2 = 0; cont2 < 3; cont2++){
       ip_dec[cont2] = clone_ip_dec[cont2];
     }
 
-    printf("\n\n");
+    printf("\n");
     }
   ip.host_per_sottorete = 0;
 
