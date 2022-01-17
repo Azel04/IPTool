@@ -124,7 +124,7 @@ Programmi necessari: gcc
 
 #### Windows:
 
-Programmi necessari: MinGW 64bit
+Programmi necessari: MinGW 64bit (Do per scontato che abbiate inserito la cartella di installazione nelle variabili di ambiente di Windows)
 
 1. Clonare questa repository (Tramite il sito o con git)
 
