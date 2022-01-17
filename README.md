@@ -134,14 +134,7 @@ Programmi necessari: MinGW 64bit (Do per scontato che abbiate inserito la cartel
 
 4. Eseguire questo comando: `gcc main.c -o IpTool.exe -lm`
 
-#### Note aggiuntive per Windows:
-
-Visto che uso Linux come sistema operativo principale, non ho testato questo programma su Windows.
-
-Se possibile non utilizzate Dev-C++ visto che utilizza un compilatore vecchio.
-
-Se volete essere sicuri, compilate e eseguite questo programma su un compilatore online come Repl o OnlineGDB.
-
+## Note aggiuntive:
 #### Uso di altri compilatori:
 
 Non ho provato a compilare e utilizzare il programma con altri compilatori come Clang. 
