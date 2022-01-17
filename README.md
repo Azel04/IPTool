@@ -141,3 +141,9 @@ Visto che uso Linux come sistema operativo principale, non ho testato questo pro
 Se possibile non utilizzate Dev-C++ visto che utilizza un compilatore vecchio.
 
 Se volete essere sicuri, compilate e eseguite questo programma su un compilatore online come Repl o OnlineGDB.
+
+#### Uso di altri compilatori:
+
+Non ho provato a compilare e utilizzare il programma con altri compilatori come Clang. 
+La compilazione del programma con altri compilatori è permessa ma non è ufficialmente supportata, potrebbero emergere dei bug che su GCC non si verificano.
+Ovviamente proverò in futuro altri compilatori ma attualmente non è la mia priorità.
