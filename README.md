@@ -4,7 +4,7 @@
 
 # IPTool
 
-IP tool è un piccolo programma per la creazione di sottoreti con FLSM e VLSM.
+IPtool è un piccolo programma per la creazione di sottoreti con FLSM e VLSM.
 
   
 
