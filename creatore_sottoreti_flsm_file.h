@@ -42,10 +42,10 @@ void creatore_sottoreti_a_file(int *ip_dec){
   do{
     printf("Digita il numero di sottoreti da creare: ");
     scanf("%d", &num_sottoreti);
-		if(num_sottoreti <= 0 || num_sottoreti >= pow(2, 21)){
+		if(num_sottoreti <= 0 || num_sottoreti >= pow(2, 24)){
       printf("Non e' possibile soddisfare la tua richiesta\n");
     }
-  }while(num_sottoreti <= 0 || num_sottoreti >= pow(2, 21));
+  }while(num_sottoreti <= 0 || num_sottoreti >= pow(2, 24));
   do{
     pot2 = pow(2,cont_pot);
     cont_pot++;
