@@ -27,11 +27,14 @@ IPtool è un piccolo programma per la creazione di sottoreti con FLSM e VLSM.
 9. [ ] Supporto al Supernetting
 
 ## Changelog
+#### 20-01-2022
+ 1. Risolto un bug sul calcolo del numero massimo di sottoreti in Classe A FLSM
+ 2. Rilasciata versione 1.0.1
 #### 17-01-2022
  1. Risolto un bug riguardante il calcolo dei bit necessari alla rete sul generatore di sottoreti in classe C FLSM
 #### 15-01-2022
  1. Risolto un bug sull'output degli indirizzi in classe A sull'FLSM
- 2. Prima release pubblica
+ 2. Prima release pubblica (1.0.0)
 #### 08-01-2022
  1. Aggiunto output su file
  2. Bug fix vari
