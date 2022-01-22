@@ -21,7 +21,7 @@ void creatore_sottoreti_a_variabile_file(int *ip_dec){
   FILE *fp;
   int somma;
   int resto;
-  int host_sottorete[100];
+  int *host_sottorete;
   int num_sottoreti;
   int bit_host[64];
   int ip_temp[32];
@@ -39,6 +39,7 @@ void creatore_sottoreti_a_variabile_file(int *ip_dec){
   int pot2_controllo_possibile_esponente;
   int pot2_controllo_possibile;
   int max_pot2;
+  int percentuale;
   max_pot2 = 256 * 256 * 256;
   max_sottoreti = pow(2, 22);
   ip_dec[3] = 0;
@@ -57,7 +58,7 @@ void creatore_sottoreti_a_variabile_file(int *ip_dec){
     printf("Inserisci il numero di sottoreti (MAX %d): ", max_sottoreti);
     scanf("%d", &num_sottoreti);
   }while(num_sottoreti > max_sottoreti || num_sottoreti <= 1);
-
+  host_sottorete = (int*) malloc(num_sottoreti * sizeof(int));
   for(i = 0; i < num_sottoreti && max_pot2 > 0; i++){
     do{
       printf("Inserisci il numero di host della sottorete numero %d: ", i + 1);
@@ -66,7 +67,9 @@ void creatore_sottoreti_a_variabile_file(int *ip_dec){
     pot2_controllo_possibile_esponente = log2(host_sottorete[i] + 3) + 1;
     pot2_controllo_possibile = pow(2, pot2_controllo_possibile_esponente);
     max_pot2 = max_pot2 - pot2_controllo_possibile;
-    printf("Spazio disponibile = %d\nBit necessari per ultima sottorete inserita: %d\n", max_pot2, pot2_controllo_possibile_esponente);
+    if(max_pot2 > 0){
+      printf("Spazio disponibile = %d\n", max_pot2);
+    }
   }
   if(i < num_sottoreti && max_pot2 <= 0){
   	printf("Non e' possibile completare la tua richiesta\n");
@@ -90,12 +93,12 @@ void creatore_sottoreti_a_variabile_file(int *ip_dec){
   j = 0;
   cont_host = 0;
   fp = fopen("latest_vlsm.txt", "w");
-  printf("Sto processando il la tua richiesta...\n");
+  printf("Sto processando la tua richiesta...\n");
   fprintf(fp, "Ecco l'ordine delle reti:\n");
   for(i = 0; i < num_sottoreti; i++){
     fprintf(fp, "%d) %d Host, Potenza di 2 piu' vicina: 2^%d\n", i + 1, host_sottorete[i] - 2, bit_host[i]);
   }
-  fprintf(fp, "\tNETWORK ID      GATEWAY         BROADCAST       PRIMO HOST      ULTIMO HOST\n");
+  fprintf(fp, "\tNETWORK ID      GATEWAY         BROADCAST       PRIMO HOST      ULTIMO HOST      SUBNET MASK\n");
   cont_bit = 0;
   cont_pot = 24 - bit_host[cont_bit];
   conversione_decimale_binario(ip_dec, ip.ip_bin);
@@ -156,6 +159,10 @@ void creatore_sottoreti_a_variabile_file(int *ip_dec){
       somma = 0;
     }
   }
+  percentuale = (100 * max_pot2) / 256;
+  percentuale = 100 - percentuale;
+  fprintf(fp, "Hai usato il %d%c della rete.\n", percentuale, '%');
+  fprintf(fp, "Il file si trova sulla cartella del programma, il file si chiama 'latest_vlsm.txt'\n");
   printf("Il file si trova nella cartella del programma, il file si chiama 'latest_vlsm.txt'\n");
   fclose(fp);
 }
@@ -165,7 +172,7 @@ void creatore_sottoreti_b_variabile_file(int *ip_dec){
   FILE *fp;
   int somma;
   int resto;
-  int host_sottorete[100];
+  int *host_sottorete;
   int num_sottoreti;
   int bit_host[64];
   int ip_temp[32];
@@ -183,6 +190,7 @@ void creatore_sottoreti_b_variabile_file(int *ip_dec){
   int pot2_controllo_possibile_esponente;
   int pot2_controllo_possibile;
   int max_pot2;
+  int percentuale;
   max_pot2 = 256 * 256;
   max_sottoreti = pow(2, 14);
   ip_dec[3] = 0;
@@ -200,6 +208,7 @@ void creatore_sottoreti_b_variabile_file(int *ip_dec){
     printf("Inserisci il numero di sottoreti (MAX %d): ", max_sottoreti);
     scanf("%d", &num_sottoreti);
   }while(num_sottoreti > pow(2, 14) || num_sottoreti <= 1);
+  host_sottorete = (int*) malloc(num_sottoreti * sizeof(int));
   for(i = 0; i < num_sottoreti && max_pot2 > 0; i++){
     do{
       printf("Inserisci il numero di host della sottorete numero %d: ", i + 1);
@@ -208,7 +217,9 @@ void creatore_sottoreti_b_variabile_file(int *ip_dec){
     pot2_controllo_possibile_esponente = log2(host_sottorete[i] + 3) + 1;
     pot2_controllo_possibile = pow(2, pot2_controllo_possibile_esponente);
     max_pot2 = max_pot2 - pot2_controllo_possibile;
-    printf("Spazio disponibile = %d\nBit necessari per ultima sottorete inserita: %d\n", max_pot2, pot2_controllo_possibile_esponente);
+    if(max_pot2 > 0){
+      printf("Spazio disponibile = %d\n", max_pot2);
+    }
   }
   if(i < num_sottoreti && max_pot2 <= 0){
   	printf("Non e' possibile completare la tua richiesta\n");
@@ -230,12 +241,12 @@ void creatore_sottoreti_b_variabile_file(int *ip_dec){
     bit_host[i] = log2(host_sottorete[i]) + 1;
   }
   fp = fopen("latest_vlsm.txt", "w");
-  printf("Sto processando il la tua richiesta...\n");
+  printf("Sto processando la tua richiesta...\n");
   fprintf(fp, "Ecco l'ordine delle reti:\n");
   for(i = 0; i < num_sottoreti; i++){
     fprintf(fp, "%d) %d Host, Potenza di 2 piu' vicina: 2^%d\n", i + 1, host_sottorete[i] - 2, bit_host[i]);
   }
-  fprintf(fp, "\tNETWORK ID      GATEWAY         BROADCAST       PRIMO HOST      ULTIMO HOST\n");
+  fprintf(fp, "\tNETWORK ID      GATEWAY         BROADCAST       PRIMO HOST      ULTIMO HOST      SUBNET MASK\n");
   cont_bit = 0;
   cont_pot = 16 - bit_host[cont_bit];
   conversione_decimale_binario(ip_dec, ip.ip_bin);
@@ -298,6 +309,10 @@ void creatore_sottoreti_b_variabile_file(int *ip_dec){
       somma = 0;
     }
   }
+  percentuale = (100 * max_pot2) / 256;
+  percentuale = 100 - percentuale;
+  fprintf(fp, "Hai usato il %d%c della rete.\n", percentuale, '%');
+  fprintf(fp, "Il file si trova sulla cartella del programma, il file si chiama 'latest_vlsm.txt'\n");
   printf("Il file si trova nella cartella del programma, il file si chiama 'latest_vlsm.txt'\n");
   fclose(fp);
 }
@@ -326,6 +341,7 @@ void creatore_sottoreti_c_variabile_file(int *ip_dec){
   int max_pot2;
   int pot2_controllo_possibile_esponente;
   int pot2_controllo_possibile;
+  int percentuale;
   max_pot2 = 256;
   max_sottoreti = pow(2, 6);
   ip_dec[3] = 0;
@@ -351,7 +367,9 @@ void creatore_sottoreti_c_variabile_file(int *ip_dec){
     pot2_controllo_possibile_esponente = log2(host_sottorete[i] + 3) + 1;
     pot2_controllo_possibile = pow(2, pot2_controllo_possibile_esponente);
     max_pot2 = max_pot2 - pot2_controllo_possibile;
-    printf("Spazio disponibile = %d\nBit necessari per ultima sottorete inserita: %d\n", max_pot2, pot2_controllo_possibile_esponente);
+    if(max_pot2 > 0){
+      printf("Spazio disponibile = %d\n", max_pot2);
+    }
   }
   if(i < num_sottoreti && max_pot2 <= 0){
   	printf("Non e' possibile completare la tua richiesta\n");
@@ -373,11 +391,12 @@ void creatore_sottoreti_c_variabile_file(int *ip_dec){
     bit_host[i] = log2(host_sottorete[i]) + 1;
   }
   fp = fopen("latest_vlsm.txt", "w");
+  printf("Sto processando la tua richiesta...\n");
   fprintf(fp, "Ecco l'ordine delle reti:\n");
   for(i = 0; i < num_sottoreti; i++){
     fprintf(fp, "%d) %d Host, Potenza di 2 piu' vicina: 2^%d\n", i + 1, host_sottorete[i] - 2, bit_host[i]);
   }
-  fprintf(fp, "\tNETWORK ID      GATEWAY         BROADCAST       PRIMO HOST      ULTIMO HOST\n");
+  fprintf(fp, "\tNETWORK ID      GATEWAY         BROADCAST       PRIMO HOST      ULTIMO HOST      SUBNET MASK\n");
   cont_bit = 0;
   cont_pot = 8 - bit_host[cont_bit];
   conversione_decimale_binario(ip_dec, ip.ip_bin);
@@ -439,6 +458,9 @@ void creatore_sottoreti_c_variabile_file(int *ip_dec){
       somma = 0;
     }
   }
-  printf("Il file si trova sulla cartella del programma, il file si chiama 'latest_vlsm.txt'\n");
+  percentuale = (100 * max_pot2) / 256;
+  percentuale = 100 - percentuale;
+  fprintf(fp, "Hai usato il %d%c della rete.\n", percentuale, '%');
+  fprintf(fp, "Il file si trova sulla cartella del programma, il file si chiama 'latest_vlsm.txt'\n");
   fclose(fp);
 }

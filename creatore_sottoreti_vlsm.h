@@ -20,7 +20,7 @@ void creatore_sottoreti_a_variabile(int *ip_dec){
   indirizzi_vlsm ip;
   int somma;
   int resto;
-  int host_sottorete[4194304];
+  int *host_sottorete;
   int num_sottoreti;
   int bit_host[64];
   int ip_temp[32];
@@ -35,11 +35,17 @@ void creatore_sottoreti_a_variabile(int *ip_dec){
   int cont_bit;
   int cont_host;
   int max_sottoreti;
+  int percentuale;
   max_sottoreti = pow(2, 22);
   ip_dec[3] = 0;
   ip_dec[2] = 0;
   ip_dec[1] = 0;
   somma_host = 0;
+  int pot2_controllo_possibile_esponente;
+  int pot2_controllo_possibile;
+  int max_pot2;
+  max_pot2 = 256 * 256 * 256;
+  max_sottoreti = pow(2, 22);
   for(i = 0; i < 32; i++){
     if(i < 8){
       ip.subnet_mask_bin[i] = 1;
@@ -52,19 +58,25 @@ void creatore_sottoreti_a_variabile(int *ip_dec){
     printf("Inserisci il numero di sottoreti (MAX %d): ", max_sottoreti);
     scanf("%d", &num_sottoreti);
   }while(num_sottoreti > max_sottoreti || num_sottoreti <= 1);
-
-  for(i = 0; i < num_sottoreti; i++){
+  host_sottorete = (int*) malloc(num_sottoreti * sizeof(int));
+  for(i = 0; i < num_sottoreti && max_pot2 > 0; i++){
     do{
       printf("Inserisci il numero di host della sottorete numero %d: ", i + 1);
       scanf("%d", &host_sottorete[i]);
     }while(host_sottorete[i] <= 0);
+    pot2_controllo_possibile_esponente = log2(host_sottorete[i] + 3) + 1;
+    pot2_controllo_possibile = pow(2, pot2_controllo_possibile_esponente);
+    max_pot2 = max_pot2 - pot2_controllo_possibile;
+    if(max_pot2 > 0){
+      printf("Spazio disponibile = %d\n", max_pot2);
+    }
+  }
+  if(i < num_sottoreti && max_pot2 <= 0){
+  	printf("Non e' possibile completare la tua richiesta\n");
+  	return;
   }
   for(i = 0; i < num_sottoreti; i++){
     somma_host = somma_host + host_sottorete[i];
-  }
-  if(somma_host > pow(2, 24) - 2){
-    printf("Non e' possibile completare la tua richiesta\n");
-    return;
   }
   for(i = 0; i < num_sottoreti; i++){
     for(j = i + 1; j < num_sottoreti; j++){
@@ -148,14 +160,16 @@ void creatore_sottoreti_a_variabile(int *ip_dec){
       somma = 0;
     }
   }
-
+  percentuale = (100 * max_pot2) / 256;
+  percentuale = 100 - percentuale;
+  printf("Hai usato il %d%c della rete.\n", percentuale, '%');
 }
 
 void creatore_sottoreti_b_variabile(int *ip_dec){
   indirizzi_vlsm ip;
   int somma;
   int resto;
-  int host_sottorete[16384];
+  int *host_sottorete;
   int num_sottoreti;
   int bit_host[64];
   int ip_temp[32];
@@ -170,6 +184,11 @@ void creatore_sottoreti_b_variabile(int *ip_dec){
   int cont_bit;
   int cont_host;
   int max_sottoreti;
+  int pot2_controllo_possibile_esponente;
+  int pot2_controllo_possibile;
+  int max_pot2;
+  int percentuale;
+  max_pot2 = 256 * 256;
   max_sottoreti = pow(2, 14);
   ip_dec[3] = 0;
   ip_dec[2] = 0;
@@ -186,18 +205,25 @@ void creatore_sottoreti_b_variabile(int *ip_dec){
     printf("Inserisci il numero di sottoreti (MAX %d): ", max_sottoreti);
     scanf("%d", &num_sottoreti);
   }while(num_sottoreti > pow(2, 14) || num_sottoreti <= 1);
-  for(i = 0; i < num_sottoreti; i++){
+  host_sottorete = (int*) malloc(num_sottoreti * sizeof(int));  
+  for(i = 0; i < num_sottoreti && max_pot2 > 0; i++){
     do{
       printf("Inserisci il numero di host della sottorete numero %d: ", i + 1);
       scanf("%d", &host_sottorete[i]);
     }while(host_sottorete[i] <= 0);
+    pot2_controllo_possibile_esponente = log2(host_sottorete[i] + 3) + 1;
+    pot2_controllo_possibile = pow(2, pot2_controllo_possibile_esponente);
+    max_pot2 = max_pot2 - pot2_controllo_possibile;
+    if(max_pot2 > 0){
+      printf("Spazio disponibile = %d\n", max_pot2);
+    }
+  }
+  if(i < num_sottoreti && max_pot2 <= 0){
+  	printf("Non e' possibile completare la tua richiesta\n");
+  	return;
   }
   for(i = 0; i < num_sottoreti; i++){
     somma_host = somma_host + host_sottorete[i];
-  }
-  if(somma_host > pow(2, 16) - 2){
-    printf("Non e' possibile completare la tua richiesta\n");
-    return;
   }
   for(i = 0; i < num_sottoreti; i++){
     for(j = i + 1; j < num_sottoreti; j++){
@@ -281,6 +307,9 @@ void creatore_sottoreti_b_variabile(int *ip_dec){
       somma = 0;
     }
   }
+  percentuale = (100 * max_pot2) / 256;
+  percentuale = 100 - percentuale;
+  printf("Hai usato il %d%c della rete.\n", percentuale, '%');
 }
 
 
@@ -303,6 +332,11 @@ void creatore_sottoreti_c_variabile(int *ip_dec){
   int cont_bit;
   int cont_host;
   int max_sottoreti;
+  int pot2_controllo_possibile_esponente;
+  int pot2_controllo_possibile;
+  int max_pot2;
+  int percentuale;
+  max_pot2 = 256;
   max_sottoreti = pow(2, 6);
   ip_dec[3] = 0;
   somma_host = 0;
@@ -318,19 +352,24 @@ void creatore_sottoreti_c_variabile(int *ip_dec){
     printf("Inserisci il numero di sottoreti (MAX 64): ", max_sottoreti);
     scanf("%d", &num_sottoreti);
   }while(num_sottoreti > 64 || num_sottoreti <= 1);
-
-  for(i = 0; i < num_sottoreti; i++){
+  for(i = 0; i < num_sottoreti && max_pot2 > 0; i++){
     do{
       printf("Inserisci il numero di host della sottorete numero %d: ", i + 1);
       scanf("%d", &host_sottorete[i]);
     }while(host_sottorete[i] <= 0);
+    pot2_controllo_possibile_esponente = log2(host_sottorete[i] + 3) + 1;
+    pot2_controllo_possibile = pow(2, pot2_controllo_possibile_esponente);
+    max_pot2 = max_pot2 - pot2_controllo_possibile;
+    if(max_pot2 > 0){
+      printf("Spazio disponibile = %d\n", max_pot2);
+    }
+  }
+  if(i < num_sottoreti && max_pot2 <= 0){
+  	printf("Non e' possibile completare la tua richiesta\n");
+  	return;
   }
   for(i = 0; i < num_sottoreti; i++){
     somma_host = somma_host + host_sottorete[i];
-  }
-  if(somma_host > 128){
-    printf("Non e' possibile completare la tua richiesta\n");
-    return;
   }
   for(i = 0; i < num_sottoreti; i++){
     for(j = i + 1; j < num_sottoreti; j++){
@@ -413,4 +452,7 @@ void creatore_sottoreti_c_variabile(int *ip_dec){
       somma = 0;
     }
   }
+  percentuale = (100 * max_pot2) / 256;
+  percentuale = 100 - percentuale;
+  printf("Hai usato il %d%c della rete.\n", percentuale, '%');
 }
