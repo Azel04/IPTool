@@ -36,6 +36,10 @@ void creatore_sottoreti_a_variabile_file(int *ip_dec){
   int cont_bit;
   int cont_host;
   int max_sottoreti;
+  int pot2_controllo_possibile_esponente;
+  int pot2_controllo_possibile;
+  int max_pot2;
+  max_pot2 = 256 * 256 * 256;
   max_sottoreti = pow(2, 22);
   ip_dec[3] = 0;
   ip_dec[2] = 0;
@@ -54,18 +58,19 @@ void creatore_sottoreti_a_variabile_file(int *ip_dec){
     scanf("%d", &num_sottoreti);
   }while(num_sottoreti > max_sottoreti || num_sottoreti <= 1);
 
-  for(i = 0; i < num_sottoreti; i++){
+  for(i = 0; i < num_sottoreti && max_pot2 > 0; i++){
     do{
       printf("Inserisci il numero di host della sottorete numero %d: ", i + 1);
       scanf("%d", &host_sottorete[i]);
     }while(host_sottorete[i] <= 0);
+    pot2_controllo_possibile_esponente = log2(host_sottorete[i] + 3) + 1;
+    pot2_controllo_possibile = pow(2, pot2_controllo_possibile_esponente);
+    max_pot2 = max_pot2 - pot2_controllo_possibile;
+    printf("Spazio disponibile = %d\nBit necessari per ultima sottorete inserita: %d\n", max_pot2, pot2_controllo_possibile_esponente);
   }
-  for(i = 0; i < num_sottoreti; i++){
-    somma_host = somma_host + host_sottorete[i];
-  }
-  if(somma_host > pow(2, 24) - 2){
-    printf("Non e' possibile completare la tua richiesta\n");
-    return;
+  if(i < num_sottoreti && max_pot2 <= 0){
+  	printf("Non e' possibile completare la tua richiesta\n");
+  	return;
   }
   for(i = 0; i < num_sottoreti; i++){
     for(j = i + 1; j < num_sottoreti; j++){
@@ -175,6 +180,10 @@ void creatore_sottoreti_b_variabile_file(int *ip_dec){
   int cont_bit;
   int cont_host;
   int max_sottoreti;
+  int pot2_controllo_possibile_esponente;
+  int pot2_controllo_possibile;
+  int max_pot2;
+  max_pot2 = 256 * 256;
   max_sottoreti = pow(2, 14);
   ip_dec[3] = 0;
   ip_dec[2] = 0;
@@ -191,18 +200,19 @@ void creatore_sottoreti_b_variabile_file(int *ip_dec){
     printf("Inserisci il numero di sottoreti (MAX %d): ", max_sottoreti);
     scanf("%d", &num_sottoreti);
   }while(num_sottoreti > pow(2, 14) || num_sottoreti <= 1);
-  for(i = 0; i < num_sottoreti; i++){
+  for(i = 0; i < num_sottoreti && max_pot2 > 0; i++){
     do{
       printf("Inserisci il numero di host della sottorete numero %d: ", i + 1);
       scanf("%d", &host_sottorete[i]);
     }while(host_sottorete[i] <= 0);
+    pot2_controllo_possibile_esponente = log2(host_sottorete[i] + 3) + 1;
+    pot2_controllo_possibile = pow(2, pot2_controllo_possibile_esponente);
+    max_pot2 = max_pot2 - pot2_controllo_possibile;
+    printf("Spazio disponibile = %d\nBit necessari per ultima sottorete inserita: %d\n", max_pot2, pot2_controllo_possibile_esponente);
   }
-  for(i = 0; i < num_sottoreti; i++){
-    somma_host = somma_host + host_sottorete[i];
-  }
-  if(somma_host > pow(2, 16) - 2){
-    printf("Non e' possibile completare la tua richiesta\n");
-    return;
+  if(i < num_sottoreti && max_pot2 <= 0){
+  	printf("Non e' possibile completare la tua richiesta\n");
+  	return;
   }
   for(i = 0; i < num_sottoreti; i++){
     for(j = i + 1; j < num_sottoreti; j++){
@@ -313,6 +323,10 @@ void creatore_sottoreti_c_variabile_file(int *ip_dec){
   int cont_bit;
   int cont_host;
   int max_sottoreti;
+  int max_pot2;
+  int pot2_controllo_possibile_esponente;
+  int pot2_controllo_possibile;
+  max_pot2 = 256;
   max_sottoreti = pow(2, 6);
   ip_dec[3] = 0;
   somma_host = 0;
@@ -329,18 +343,19 @@ void creatore_sottoreti_c_variabile_file(int *ip_dec){
     scanf("%d", &num_sottoreti);
   }while(num_sottoreti > 64 || num_sottoreti <= 1);
 
-  for(i = 0; i < num_sottoreti; i++){
+  for(i = 0; i < num_sottoreti && max_pot2 > 0; i++){
     do{
       printf("Inserisci il numero di host della sottorete numero %d: ", i + 1);
       scanf("%d", &host_sottorete[i]);
     }while(host_sottorete[i] <= 0);
+    pot2_controllo_possibile_esponente = log2(host_sottorete[i] + 3) + 1;
+    pot2_controllo_possibile = pow(2, pot2_controllo_possibile_esponente);
+    max_pot2 = max_pot2 - pot2_controllo_possibile;
+    printf("Spazio disponibile = %d\nBit necessari per ultima sottorete inserita: %d\n", max_pot2, pot2_controllo_possibile_esponente);
   }
-  for(i = 0; i < num_sottoreti; i++){
-    somma_host = somma_host + host_sottorete[i];
-  }
-  if(somma_host > 128){
-    printf("Non e' possibile completare la tua richiesta\n");
-    return;
+  if(i < num_sottoreti && max_pot2 <= 0){
+  	printf("Non e' possibile completare la tua richiesta\n");
+  	return;
   }
   for(i = 0; i < num_sottoreti; i++){
     for(j = i + 1; j < num_sottoreti; j++){
