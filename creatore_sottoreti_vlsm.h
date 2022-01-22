@@ -160,7 +160,7 @@ void creatore_sottoreti_a_variabile(int *ip_dec){
       somma = 0;
     }
   }
-  percentuale = (100 * max_pot2) / 256;
+  percentuale = (100 * max_pot2) / (256 * 256 * 256);
   percentuale = 100 - percentuale;
   printf("Rete utilizzata: %d%c\n", percentuale, '%');
 }
@@ -307,7 +307,7 @@ void creatore_sottoreti_b_variabile(int *ip_dec){
       somma = 0;
     }
   }
-  percentuale = (100 * max_pot2) / 256;
+  percentuale = (100 * max_pot2) / (256 * 256);
   percentuale = 100 - percentuale;
   printf("Rete utilizzata: %d%c\n", percentuale, '%');
 }

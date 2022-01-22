@@ -159,7 +159,7 @@ void creatore_sottoreti_a_variabile_file(int *ip_dec){
       somma = 0;
     }
   }
-  percentuale = (100 * max_pot2) / 256;
+  percentuale = (100 * max_pot2) / (256 * 256 * 256);
   percentuale = 100 - percentuale;
   fprintf(fp, "Rete utilizzata: %d%c\n", percentuale, '%');
   fprintf(fp, "Il file si trova sulla cartella del programma, il file si chiama 'latest_vlsm.txt'\n");
@@ -309,7 +309,7 @@ void creatore_sottoreti_b_variabile_file(int *ip_dec){
       somma = 0;
     }
   }
-  percentuale = (100 * max_pot2) / 256;
+  percentuale = (100 * max_pot2) / (256 * 256);
   percentuale = 100 - percentuale;
   fprintf(fp, "Rete utilizzata: %d%c\n", percentuale, '%');
   fprintf(fp, "Il file si trova sulla cartella del programma, il file si chiama 'latest_vlsm.txt'\n");
