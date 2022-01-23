@@ -85,7 +85,7 @@ void creatore_sottoreti_a_variabile_file(int *ip_dec){
     }
   }
   for(i = 0; i < num_sottoreti; i++){
-    host_sottorete[i] = host_sottorete[i] + 2;
+    host_sottorete[i] = host_sottorete[i] + 3;
   }
   for(i = 0; i < num_sottoreti; i++){
     bit_host[i] = log2(host_sottorete[i]) + 1;
@@ -235,7 +235,7 @@ void creatore_sottoreti_b_variabile_file(int *ip_dec){
     }
   }
   for(i = 0; i < num_sottoreti; i++){
-    host_sottorete[i] = host_sottorete[i] + 2;
+    host_sottorete[i] = host_sottorete[i] + 3;
   }
   for(i = 0; i < num_sottoreti; i++){
     bit_host[i] = log2(host_sottorete[i]) + 1;
@@ -385,7 +385,7 @@ void creatore_sottoreti_c_variabile_file(int *ip_dec){
     }
   }
   for(i = 0; i < num_sottoreti; i++){
-    host_sottorete[i] = host_sottorete[i] + 2;
+    host_sottorete[i] = host_sottorete[i] + 3;
   }
   for(i = 0; i < num_sottoreti; i++){
     bit_host[i] = log2(host_sottorete[i]) + 1;
