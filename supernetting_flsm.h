@@ -37,7 +37,15 @@ void creatore_sottoreti_supernetting_c(int *ip_dec_supernetting){
     somma = somma + pow(2, i);
     i++;
   }while(somma < num_host);
-  bit_sottr_supernet = i - 8;
+  if(i > 8){
+  	bit_sottr_supernet = i - 8;
+  }
+  if(i > 16){
+  	bit_sottr_supernet = i - 16;
+  }
+  if(i > 24){
+  	bit_sottr_supernet = i - 24;
+  }
   
   for(i = 0; i < 32; i++){
    if(i < 24 - bit_sottr_supernet){
@@ -80,7 +88,15 @@ void creatore_sottoreti_supernetting_b(int *ip_dec_supernetting){
     somma = somma + pow(2, i);
     i++;
   }while(somma < num_host);
-  bit_sottr_supernet = i - 8;
+  if(i > 8){
+  	bit_sottr_supernet = i - 8;
+  }
+  if(i > 16){
+  	bit_sottr_supernet = i - 16;
+  }
+  if(i > 24){
+  	bit_sottr_supernet = i - 24;
+  }
   
   for(i = 0; i < 32; i++){
    if(i < 16 - bit_sottr_supernet){
@@ -123,7 +139,16 @@ void creatore_sottoreti_supernetting_a(int *ip_dec_supernetting){
     somma = somma + pow(2, i);
     i++;
   }while(somma < num_host);
-  bit_sottr_supernet = i - 8;
+  if(i > 8){
+  	bit_sottr_supernet = i - 8;
+  }
+  if(i > 16){
+  	bit_sottr_supernet = i - 16;
+  }
+  if(i > 24){
+  	bit_sottr_supernet = i - 24;
+  }
+  	
   
   for(i = 0; i < 32; i++){
    if(i < 8 - bit_sottr_supernet){
