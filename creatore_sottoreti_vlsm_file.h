@@ -71,9 +71,13 @@ void creatore_sottoreti_a_variabile_file(int *ip_dec){
       printf("Spazio disponibile = %d\n", max_pot2);
     }
   }
-  if(i < num_sottoreti && max_pot2 <= 0){
+  if(max_pot2 < 0){
   	printf("Non e' possibile completare la tua richiesta\n");
   	return;
+  }
+  if(i < num_sottoreti && max_pot2 <=0){
+  	printf("Non e' possibile completare la tua richiesta\n");
+  	return;    
   }
   for(i = 0; i < num_sottoreti; i++){
     for(j = i + 1; j < num_sottoreti; j++){
@@ -221,9 +225,13 @@ void creatore_sottoreti_b_variabile_file(int *ip_dec){
       printf("Spazio disponibile = %d\n", max_pot2);
     }
   }
-  if(i < num_sottoreti && max_pot2 <= 0){
+  if(max_pot2 < 0){
   	printf("Non e' possibile completare la tua richiesta\n");
   	return;
+  }
+  if(i < num_sottoreti && max_pot2 <=0){
+  	printf("Non e' possibile completare la tua richiesta\n");
+  	return;    
   }
   for(i = 0; i < num_sottoreti; i++){
     for(j = i + 1; j < num_sottoreti; j++){
@@ -371,9 +379,13 @@ void creatore_sottoreti_c_variabile_file(int *ip_dec){
       printf("Spazio disponibile = %d\n", max_pot2);
     }
   }
-  if(i < num_sottoreti && max_pot2 <= 0){
+  if(max_pot2 < 0){
   	printf("Non e' possibile completare la tua richiesta\n");
   	return;
+  }
+  if(i < num_sottoreti && max_pot2 <=0){
+  	printf("Non e' possibile completare la tua richiesta\n");
+  	return;    
   }
   for(i = 0; i < num_sottoreti; i++){
     for(j = i + 1; j < num_sottoreti; j++){
