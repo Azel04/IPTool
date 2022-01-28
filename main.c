@@ -14,6 +14,7 @@
 #include "creatore_sottoreti_flsm_file.h"
 #include "creatore_sottoreti_vlsm_file.h"
 #include "controllo_stessa_subnet.h"
+#include "supernetting_flsm.h"
 #include "clearscreen.h"
 
 
@@ -32,7 +33,7 @@ int main(){
 	sleep(2);
 	clearscreen(); //Pulizia schermo
 	do{
-		printf("1) Inserisci un indirizzo ipv4 e calcolane la sua classe e il suo corrispettivo ip in binario\n2) Crea un numero di sottoreti a tua scelta con la FLSM\n3) Crea un numero di sottoreti a tua scelta con la VLSM\n4) Verifica se 2 indirizzi appartengono alla stessa subnet\n5) Fine\nFai la tua scelta: ");
+		printf("1) Inserisci un indirizzo ipv4 e calcolane la sua classe e il suo corrispettivo ip in binario\n2) Crea un numero di sottoreti a tua scelta con la FLSM\n3) Crea un numero di sottoreti a tua scelta con la VLSM\n4) Crea un numero di sottoreti a tua scelta con il supernetting in FLSM\n5) Verifica se 2 indirizzi appartengono alla stessa subnet\n6) Fine\nFai la tua scelta: ");
 		scanf("%d", &scelta);
 		switch(scelta){
 			case 1:
@@ -118,11 +119,48 @@ int main(){
 						printf("Input non valido\n");
 						break;
 				}					
-				break;			
+				break;
 			case 4:
+				input_ip(ip_dec);
+ 				tipo = controllo_tipo_ip_sottorete(ip_dec);
+				printf("1) Output normale\n2) Output su file\nFai la tua scelta: ");
+				scanf("%d", &scelta_file);
+				switch(scelta_file){
+					case 1:
+						switch(tipo){
+							case 0:
+								creatore_sottoreti_supernetting_a(ip_dec);
+								break;
+							case 1:
+								creatore_sottoreti_supernetting_b(ip_dec);
+								break;
+							case 2:
+								creatore_sottoreti_supernetting_c(ip_dec);
+								break;
+						}
+						break;
+					case 2:
+						switch(tipo){
+							case 0:
+								//creatore_sottoreti_a_file(ip_dec);
+								break;
+							case 1:
+								//creatore_sottoreti_b_file(ip_dec);
+								break;
+							case 2:
+								//creatore_sottoreti_c_file(ip_dec);
+								break;
+						}
+						break;
+					default:
+						printf("Input non valido\n");
+						break;
+				}					
+				break;			
+			case 5:
 				controllo_stessa_subnet();
 				break;
-			case 5:
+			case 6:
 				printf("Fine\n");
 				fine = 1;
 				break;
