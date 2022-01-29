@@ -1,6 +1,6 @@
-void creatore_sottoreti_supernetting_c(int *ip_dec_supernetting);
-void creatore_sottoreti_supernetting_b(int *ip_dec_supernetting);
-void creatore_sottoreti_supernetting_a(int *ip_dec_supernetting);
+void creatore_sottoreti_supernetting_c_file(int *ip_dec_supernetting);
+void creatore_sottoreti_supernetting_b_file(int *ip_dec_supernetting);
+void creatore_sottoreti_supernetting_a_file(int *ip_dec_supernetting);
 
 typedef struct{
   int ip_bin[32];
@@ -15,10 +15,11 @@ typedef struct{
   int net_id;
   int host;
   int diff_supernet[8];
-}indirizzi_supernet;
+}indirizzi_supernet_file;
 
-void creatore_sottoreti_supernetting_c(int *ip_dec_supernetting){
-  indirizzi_supernet ip;
+void creatore_sottoreti_supernetting_c_file(int *ip_dec_supernetting){
+  indirizzi_supernet_file ip;
+  FILE *fp;
   int num_host;
   int bit_sottr_supernet;
   int somma;
@@ -59,17 +60,19 @@ void creatore_sottoreti_supernetting_c(int *ip_dec_supernetting){
   ip.broadcast = ip_dec_supernetting[2] + (pow(2, bit_sottr_supernet)) - 1;
   ip.range[0] = ip.gateway + 1;
   ip.range[1] = ip.broadcast - 1;
-  printf("NETWORK ID\tGATEWAY\t\tBROADCAST\tPRIMO HOST\tULTIMO HOST\n");
-  printf("%03d.%03d.%03d.%03d\t", ip_dec_supernetting[0], ip_dec_supernetting[1], ip_dec_supernetting[2], ip_dec_supernetting[3]);
-  printf("%03d.%03d.%03d.%03d\t", ip_dec_supernetting[0], ip_dec_supernetting[1], ip_dec_supernetting[2], ip.gateway);
-  printf("%03d.%03d.%03d.%03d\t", ip_dec_supernetting[0], ip_dec_supernetting[1], ip.broadcast - 1, 255);
-  printf("%03d.%03d.%03d.%03d\t", ip_dec_supernetting[0], ip_dec_supernetting[1], ip_dec_supernetting[2], ip.range[0]);
-  printf("%03d.%03d.%03d.%03d\n", ip_dec_supernetting[0], ip_dec_supernetting[1], ip.broadcast - 1, 254);
-  
+  fp = fopen("latest_flsm_supernet.txt", "w");
+  fprintf(fp, "NETWORK ID\tGATEWAY\t\tBROADCAST\tPRIMO HOST\tULTIMO HOST\n");
+  fprintf(fp, "%03d.%03d.%03d.%03d\t", ip_dec_supernetting[0], ip_dec_supernetting[1], ip_dec_supernetting[2], ip_dec_supernetting[3]);
+  fprintf(fp, "%03d.%03d.%03d.%03d\t", ip_dec_supernetting[0], ip_dec_supernetting[1], ip_dec_supernetting[2], ip.gateway);
+  fprintf(fp, "%03d.%03d.%03d.%03d\t", ip_dec_supernetting[0], ip_dec_supernetting[1], ip.broadcast - 1, 255);
+  fprintf(fp, "%03d.%03d.%03d.%03d\t", ip_dec_supernetting[0], ip_dec_supernetting[1], ip_dec_supernetting[2], ip.range[0]);
+  fprintf(fp, "%03d.%03d.%03d.%03d\n", ip_dec_supernetting[0], ip_dec_supernetting[1], ip.broadcast - 1, 254);
+  fclose(fp);
 }
 
-void creatore_sottoreti_supernetting_b(int *ip_dec_supernetting){
-  indirizzi_supernet ip;
+void creatore_sottoreti_supernetting_b_file(int *ip_dec_supernetting){
+  indirizzi_supernet_file ip;
+  FILE *fp;
   int num_host;
   int bit_sottr_supernet;
   int somma;
@@ -110,17 +113,19 @@ void creatore_sottoreti_supernetting_b(int *ip_dec_supernetting){
   ip.broadcast = ip_dec_supernetting[1] + (pow(2, bit_sottr_supernet)) - 1;
   ip.range[0] = ip.gateway + 1;
   ip.range[1] = ip.broadcast - 1;
-  printf("NETWORK ID\tGATEWAY\t\tBROADCAST\tPRIMO HOST\tULTIMO HOST\n");
-  printf("%03d.%03d.%03d.%03d\t", ip_dec_supernetting[0], ip_dec_supernetting[1], ip_dec_supernetting[2], ip_dec_supernetting[3]);
-  printf("%03d.%03d.%03d.%03d\t", ip_dec_supernetting[0], ip_dec_supernetting[1], ip_dec_supernetting[2], ip.gateway);
-  printf("%03d.%03d.%03d.%03d\t", ip_dec_supernetting[0], ip_dec_supernetting[1], ip.broadcast - 1, 255);
-  printf("%03d.%03d.%03d.%03d\t", ip_dec_supernetting[0], ip_dec_supernetting[1], ip_dec_supernetting[2], ip.range[0]);
-  printf("%03d.%03d.%03d.%03d\n", ip_dec_supernetting[0], ip_dec_supernetting[1], ip.broadcast - 1, 254);
-  
+  fp = fopen("latest_flsm_supernet.txt", "w");
+  fprintf(fp, "NETWORK ID\tGATEWAY\t\tBROADCAST\tPRIMO HOST\tULTIMO HOST\n");
+  fprintf(fp, "%03d.%03d.%03d.%03d\t", ip_dec_supernetting[0], ip_dec_supernetting[1], ip_dec_supernetting[2], ip_dec_supernetting[3]);
+  fprintf(fp, "%03d.%03d.%03d.%03d\t", ip_dec_supernetting[0], ip_dec_supernetting[1], ip_dec_supernetting[2], ip.gateway);
+  fprintf(fp, "%03d.%03d.%03d.%03d\t", ip_dec_supernetting[0], ip_dec_supernetting[1], ip.broadcast - 1, 255);
+  fprintf(fp, "%03d.%03d.%03d.%03d\t", ip_dec_supernetting[0], ip_dec_supernetting[1], ip_dec_supernetting[2], ip.range[0]);
+  fprintf(fp, "%03d.%03d.%03d.%03d\n", ip_dec_supernetting[0], ip_dec_supernetting[1], ip.broadcast - 1, 254);
+  fclose(fp);
 }
 
-void creatore_sottoreti_supernetting_a(int *ip_dec_supernetting){
-  indirizzi_supernet ip;
+void creatore_sottoreti_supernetting_a_file(int *ip_dec_supernetting){
+  indirizzi_supernet_file ip;
+  FILE *fp;
   int num_host;
   int bit_sottr_supernet;
   int somma;
@@ -162,13 +167,14 @@ void creatore_sottoreti_supernetting_a(int *ip_dec_supernetting){
   ip.broadcast = ip_dec_supernetting[0] + (pow(2, bit_sottr_supernet));
   ip.range[0] = ip.gateway + 1;
   ip.range[1] = ip.broadcast - 1;
-  printf("NETWORK ID\tGATEWAY\t\tBROADCAST\tPRIMO HOST\tULTIMO HOST\n");
-  printf("%03d.%03d.%03d.%03d\t", ip_dec_supernetting[0], ip_dec_supernetting[1], ip_dec_supernetting[2], ip_dec_supernetting[3]);
-  printf("%03d.%03d.%03d.%03d\t", ip_dec_supernetting[0], ip_dec_supernetting[1], ip_dec_supernetting[2], ip.gateway);
-  printf("%03d.%03d.%03d.%03d\t", ip_dec_supernetting[0], ip_dec_supernetting[1], ip.broadcast - 1, 255);
-  printf("%03d.%03d.%03d.%03d\t", ip_dec_supernetting[0], ip_dec_supernetting[1], ip_dec_supernetting[2], ip.range[0]);
-  printf("%03d.%03d.%03d.%03d\n", ip_dec_supernetting[0], ip_dec_supernetting[1], ip.broadcast - 1, 254);
-  
+  fp = fopen("latest_flsm_supernet.txt", "w");
+  fprintf(fp, "NETWORK ID\tGATEWAY\t\tBROADCAST\tPRIMO HOST\tULTIMO HOST\n");
+  fprintf(fp, "%03d.%03d.%03d.%03d\t", ip_dec_supernetting[0], ip_dec_supernetting[1], ip_dec_supernetting[2], ip_dec_supernetting[3]);
+  fprintf(fp, "%03d.%03d.%03d.%03d\t", ip_dec_supernetting[0], ip_dec_supernetting[1], ip_dec_supernetting[2], ip.gateway);
+  fprintf(fp, "%03d.%03d.%03d.%03d\t", ip_dec_supernetting[0], ip_dec_supernetting[1], ip.broadcast - 1, 255);
+  fprintf(fp, "%03d.%03d.%03d.%03d\t", ip_dec_supernetting[0], ip_dec_supernetting[1], ip_dec_supernetting[2], ip.range[0]);
+  fprintf(fp, "%03d.%03d.%03d.%03d\n", ip_dec_supernetting[0], ip_dec_supernetting[1], ip.broadcast - 1, 254);
+  fclose(fp);
 }
 
 

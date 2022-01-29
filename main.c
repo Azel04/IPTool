@@ -15,6 +15,7 @@
 #include "creatore_sottoreti_vlsm_file.h"
 #include "controllo_stessa_subnet.h"
 #include "supernetting_flsm.h"
+#include "supernetting_flsm_file.h"
 #include "clearscreen.h"
 
 
@@ -142,13 +143,13 @@ int main(){
 					case 2:
 						switch(tipo){
 							case 0:
-								//creatore_sottoreti_a_file(ip_dec);
+								creatore_sottoreti_supernetting_a_file(ip_dec);
 								break;
 							case 1:
-								//creatore_sottoreti_b_file(ip_dec);
+								creatore_sottoreti_supernetting_b_file(ip_dec);
 								break;
 							case 2:
-								//creatore_sottoreti_c_file(ip_dec);
+								creatore_sottoreti_supernetting_c_file(ip_dec);
 								break;
 						}
 						break;
