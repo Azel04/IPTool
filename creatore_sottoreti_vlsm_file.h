@@ -31,6 +31,7 @@ void creatore_sottoreti_a_variabile_file(int *ip_dec){
   int j;
   int k;
   int temp;
+  int temp_controllo_addizione;
   int cont;
   int cont_pot;
   int cont_bit;
@@ -159,8 +160,14 @@ void creatore_sottoreti_a_variabile_file(int *ip_dec){
     for(i = 7 + cont_pot; i >= 8; i--){
       resto = ip.ip_bin[i] * somma;
       ip.ip_bin[i] = ip.ip_bin[i] ^ somma;
+      temp_controllo_addizione = ip.ip_bin[i - 1];
       ip.ip_bin[i - 1] = ip.ip_bin[i - 1] ^ resto;
-      somma = 0;
+      if(ip.ip_bin[i - 1] == 0 && temp_controllo_addizione == 1){
+        somma = resto;
+      }
+      else{
+        i = 7;
+      }
     }
   }
   percentuale = (100 * max_pot2) / (256 * 256 * 256);
@@ -186,6 +193,7 @@ void creatore_sottoreti_b_variabile_file(int *ip_dec){
   int j;
   int k;
   int temp;
+  int temp_controllo_addizione;
   int cont;
   int cont_pot;
   int cont_bit;
@@ -313,8 +321,14 @@ void creatore_sottoreti_b_variabile_file(int *ip_dec){
     for(i = 15 + cont_pot; i >= 16; i--){
       resto = ip.ip_bin[i] * somma;
       ip.ip_bin[i] = ip.ip_bin[i] ^ somma;
+      temp_controllo_addizione = ip.ip_bin[i - 1];
       ip.ip_bin[i - 1] = ip.ip_bin[i - 1] ^ resto;
-      somma = 0;
+      if(ip.ip_bin[i - 1] == 0 && temp_controllo_addizione == 1){
+        somma = resto;
+      }
+      else{
+        i = 7;
+      }
     }
   }
   percentuale = (100 * max_pot2) / (256 * 256);
@@ -341,6 +355,7 @@ void creatore_sottoreti_c_variabile_file(int *ip_dec){
   int j;
   int k;
   int temp;
+  int temp_controllo_addizione;
   int cont;
   int cont_pot;
   int cont_bit;
@@ -466,8 +481,14 @@ void creatore_sottoreti_c_variabile_file(int *ip_dec){
     for(i = 23 + cont_pot; i >= 24; i--){
       resto = ip.ip_bin[i] * somma;
       ip.ip_bin[i] = ip.ip_bin[i] ^ somma;
+      temp_controllo_addizione = ip.ip_bin[i - 1];
       ip.ip_bin[i - 1] = ip.ip_bin[i - 1] ^ resto;
-      somma = 0;
+      if(ip.ip_bin[i - 1] == 0 && temp_controllo_addizione == 1){
+        somma = resto;
+      }
+      else{
+        i = 7;
+      }
     }
   }
   percentuale = (100 * max_pot2) / 256;
