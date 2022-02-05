@@ -28,7 +28,10 @@ void creatore_sottoreti_a(int *ip_dec){
   int cont;
   int intervallo_pot;
   int intervallo;
+  int inizio_array;
+  int fine_array;
   int ip_temp[32];
+  pid_t pid;
   for(i = 0; i < 32; i++){
     ip.subnet_mask_bin[i] = 0;
   }
@@ -53,9 +56,20 @@ void creatore_sottoreti_a(int *ip_dec){
   for(i = 0; i < 4; i++){
     clone_ip_dec[i] = ip_dec[i];
   }
+  if(num_sottoreti >= 4000000){
+  	pid = fork();
+  	if(pid == 0){
+  		inizio_array = 0;
+  		fine_array = num_sottoreti / 2;
+	}
+	if(pid > 0){
+  		inizio_array = (num_sottoreti / 2) + 1;
+  		fine_array = num_sottoreti;
+	}
+  }
   printf("\tNETWORK ID\tGATEWAY\t\tBROADCAST\tPRIMO HOST\tULTIMO HOST\n");
   conversione_decimale_binario(ip_dec, ip.ip_bin);
-  for(cont = 0; cont < num_sottoreti; cont++){
+  for(cont = inizio_array; cont < fine_array; cont++){
     
     for(i = 0; i < 32; i++){
       ip_temp[i] = ip.ip_bin[i];
