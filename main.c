@@ -14,8 +14,8 @@
 #include "creatore_sottoreti_flsm_file.h"
 #include "creatore_sottoreti_vlsm_file.h"
 #include "controllo_stessa_subnet.h"
-#include "supernetting_flsm.h"
-#include "supernetting_flsm_file.h"
+#include "supernetting_vlsm.h"
+#include "supernetting_vlsm_file.h"
 #include "clearscreen.h"
 
 
@@ -34,7 +34,7 @@ int main(){
 	sleep(2);
 	clearscreen(); //Pulizia schermo
 	do{
-		printf("1) Inserisci un indirizzo ipv4 e calcolane la sua classe e il suo corrispettivo ip in binario\n2) Crea un numero di sottoreti a tua scelta con la FLSM\n3) Crea un numero di sottoreti a tua scelta con la VLSM\n4) Crea un numero di sottoreti a tua scelta con il supernetting (ATTENZIONE: LA FUNZIONE NON È COMPLETA, L'UTILIZZO È SCONSIGLIATO)\n5) Verifica se 2 indirizzi appartengono alla stessa subnet\n6) Fine\nFai la tua scelta: ");
+		printf("1) Inserisci un indirizzo ipv4 e calcolane la sua classe e il suo corrispettivo ip in binario\n2) Crea un numero di sottoreti a tua scelta con la FLSM\n3) Crea un numero di sottoreti a tua scelta con la VLSM\n4) Crea un numero di sottoreti a tua scelta con il supernetting (BETA)\n5) Verifica se 2 indirizzi appartengono alla stessa subnet\n6) Fine\nFai la tua scelta: ");
 		scanf("%d", &scelta);
 		switch(scelta){
 			case 1:
