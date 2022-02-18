@@ -9,12 +9,9 @@
 #include "conversione_decimale_binario_ip.h"
 #include "conversione_binario_decimale.h"
 #include "controllo_tipo_ip.h"
-#include "creatore_sottoreti_flsm.h"
-#include "creatore_sottoreti_vlsm.h"
 #include "creatore_sottoreti_flsm_file.h"
 #include "creatore_sottoreti_vlsm_file.h"
 #include "controllo_stessa_subnet.h"
-#include "supernetting_vlsm.h"
 #include "supernetting_vlsm_file.h"
 #include "clearscreen.h"
 
@@ -50,113 +47,47 @@ int main(){
 			case 2:
 				input_ip(ip_dec);
  				tipo = controllo_tipo_ip_sottorete(ip_dec);
-				printf("1) Output normale\n2) Output su file\nFai la tua scelta: ");
-				scanf("%d", &scelta_file);
-				switch(scelta_file){
-					case 1:
-						switch(tipo){
-							case 0:
-								creatore_sottoreti_a(ip_dec);
-								break;
-							case 1:
-								creatore_sottoreti_b(ip_dec);
-								break;
-							case 2:
-								creatore_sottoreti_c(ip_dec);
-								break;
-						}
-						break;
-					case 2:
-						switch(tipo){
-							case 0:
-								creatore_sottoreti_a_file(ip_dec);
-								break;
-							case 1:
-								creatore_sottoreti_b_file(ip_dec);
-								break;
-							case 2:
-								creatore_sottoreti_c_file(ip_dec);
-								break;
-						}
-						break;
-					default:
-						printf("Input non valido\n");
-						break;
-				}					
+				switch(tipo){
+				case 0:
+					creatore_sottoreti_a_file(ip_dec);
+					break;
+				case 1:
+					creatore_sottoreti_b_file(ip_dec);
+					break;
+				case 2:
+					creatore_sottoreti_c_file(ip_dec);
+					break;
+				}				
 				break;
 			case 3:
 				input_ip(ip_dec);
  				tipo = controllo_tipo_ip_sottorete(ip_dec);
-				printf("1) Output normale\n2) Output su file\nFai la tua scelta: ");
-				scanf("%d", &scelta_file);
-				switch(scelta_file){
+				switch(tipo){
+					case 0:
+						creatore_sottoreti_a_variabile_file(ip_dec);
+						break;
 					case 1:
-						switch(tipo){
-							case 0:
-								creatore_sottoreti_a_variabile(ip_dec);
-								break;
-							case 1:
-								creatore_sottoreti_b_variabile(ip_dec);
-								break;
-							case 2:
-								creatore_sottoreti_c_variabile(ip_dec);
-								break;
-						}
+						creatore_sottoreti_b_variabile_file(ip_dec);
 						break;
 					case 2:
-						switch(tipo){
-							case 0:
-								creatore_sottoreti_a_variabile_file(ip_dec);
-								break;
-							case 1:
-								creatore_sottoreti_b_variabile_file(ip_dec);
-								break;
-							case 2:
-								creatore_sottoreti_c_variabile_file(ip_dec);
-								break;
-						}
+						creatore_sottoreti_c_variabile_file(ip_dec);
 						break;
-					default:
-						printf("Input non valido\n");
-						break;
-				}					
+				}		
 				break;
 			case 4:
 				input_ip(ip_dec);
  				tipo = controllo_tipo_ip_sottorete(ip_dec);
-				printf("1) Output normale\n2) Output su file\nFai la tua scelta: ");
-				scanf("%d", &scelta_file);
-				switch(scelta_file){
+				switch(tipo){
+					case 0:
+						creatore_sottoreti_supernetting_a_file(ip_dec);
+						break;
 					case 1:
-						switch(tipo){
-							case 0:
-								creatore_sottoreti_supernetting_a(ip_dec);
-								break;
-							case 1:
-								creatore_sottoreti_supernetting_b(ip_dec);
-								break;
-							case 2:
-								creatore_sottoreti_supernetting_c(ip_dec);
-								break;
-						}
+						creatore_sottoreti_supernetting_b_file(ip_dec);
 						break;
 					case 2:
-						switch(tipo){
-							case 0:
-								creatore_sottoreti_supernetting_a_file(ip_dec);
-								break;
-							case 1:
-								creatore_sottoreti_supernetting_b_file(ip_dec);
-								break;
-							case 2:
-								creatore_sottoreti_supernetting_c_file(ip_dec);
-								break;
-						}
+						creatore_sottoreti_supernetting_c_file(ip_dec);
 						break;
-					default:
-						printf("Input non valido\n");
-						break;
-				}					
+				}	
 				break;			
 			case 5:
 				controllo_stessa_subnet();

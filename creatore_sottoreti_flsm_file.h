@@ -19,6 +19,9 @@ typedef struct{
 void creatore_sottoreti_a_file(int *ip_dec){
   indirizzi_file ip;
   FILE *fp;
+  char *buffer;
+  long size;
+  int scelta;
   int clone_ip_dec[4];  
   int num_sottoreti;
   int pot2;
@@ -108,13 +111,31 @@ void creatore_sottoreti_a_file(int *ip_dec){
   }
   conversione_binario_decimale(ip.subnet_mask_dec, ip.subnet_mask_bin);
   fprintf(fp, "INDIRIZZO IP CON CIDR: %03d.0.0.0/%d\nHost per sottorete: %d\nSubnet mask: %03d.%03d.%03d.%03d\n", clone_ip_dec[0], 8 + (cont_pot - 1), ip.host_per_sottorete, ip.subnet_mask_dec[0], ip.subnet_mask_dec[1], ip.subnet_mask_dec[2], ip.subnet_mask_dec[3]);
-  printf("L'output si trova nella cartella del programma, il file si chiama 'latest_flsm.txt'\n");
   fclose(fp);
+  fp = fopen("latest_flsm.txt", "r");
+  fseek(fp, 0, SEEK_END);
+  size = ftell(fp);
+  rewind(fp);
+  buffer = (char *) calloc(size, sizeof(char));
+  fread(buffer, sizeof(char), size, fp);
+  printf(buffer);
+  free(buffer);
+  fclose(fp);
+  do{
+    printf("Vuoi salvare il file? (1 = si; 0 = no): ");
+    scanf("%d", &scelta);
+    if(scelta == 0){
+      remove("latest_flsm.txt");
+    }
+  }while(scelta < 0 || scelta > 1);
 }
 
 void creatore_sottoreti_b_file(int *ip_dec){
   indirizzi_file ip;
   FILE *fp;
+  char *buffer;
+  long size;
+  int scelta;
   int clone_ip_dec[4];
   int num_sottoreti;
   int pot2;
@@ -205,12 +226,31 @@ void creatore_sottoreti_b_file(int *ip_dec){
   fprintf(fp, "INDIRIZZO IP CON CIDR: %03d.%03d.0.0/%03d\nHost per sottorete: %d\nSubnet mask: %03d.%03d.%03d.%03d\n", clone_ip_dec[0], clone_ip_dec[1], 16 + (cont_pot - 1), ip.host_per_sottorete, ip.subnet_mask_dec[0], ip.subnet_mask_dec[1], ip.subnet_mask_dec[2], ip.subnet_mask_dec[3]);
   printf("Il file si trova nella cartella del programma, il file si chiama 'latest_flsm.txt'\n");
   fclose(fp);
+  fp = fopen("latest_flsm.txt", "r");
+  fseek(fp, 0, SEEK_END);
+  size = ftell(fp);
+  rewind(fp);
+  buffer = (char *) calloc(size, sizeof(char));
+  fread(buffer, sizeof(char), size, fp);
+  printf(buffer);
+  free(buffer);
+  fclose(fp);
+  do{
+    printf("Vuoi salvare il file? (1 = si; 0 = no): ");
+    scanf("%d", &scelta);
+    if(scelta == 0){
+      remove("latest_flsm.txt");
+    }
+  }while(scelta < 0 || scelta > 1);
 }
 
 
 void creatore_sottoreti_c_file(int *ip_dec){
   indirizzi_file ip;
   FILE *fp;
+  char *buffer;
+  long size;
+  int scelta;
   int clone_ip_dec[4];
   int num_sottoreti;
   int pot2;
@@ -288,4 +328,20 @@ void creatore_sottoreti_c_file(int *ip_dec){
   fprintf(fp, "INDIRIZZO IP CON CIDR: %03d.%03d.%03d.%03d/%d\nNumero Host per sottorete: %d\nSubnet mask: %03d.%03d.%03d.%03d\n", clone_ip_dec[0], clone_ip_dec[1], clone_ip_dec[2], clone_ip_dec[3], 24 + (cont_pot - 1), ip.host_per_sottorete, ip.subnet_mask_dec[0], ip.subnet_mask_dec[1], ip.subnet_mask_dec[2], ip.subnet_mask_dec[3]);
   printf("Il file si trova nella cartella del programma, il file si chiama 'latest_flsm.txt'\n");
   fclose(fp);
+  fp = fopen("latest_flsm.txt", "r");
+  fseek(fp, 0, SEEK_END);
+  size = ftell(fp);
+  rewind(fp);
+  buffer = (char *) calloc(size, sizeof(char));
+  fread(buffer, sizeof(char), size, fp);
+  printf(buffer);
+  free(buffer);
+  fclose(fp);
+  do{
+    printf("Vuoi salvare il file? (1 = si; 0 = no): ");
+    scanf("%d", &scelta);
+    if(scelta == 0){
+      remove("latest_flsm.txt");
+    }
+  }while(scelta < 0 || scelta > 1);
 }

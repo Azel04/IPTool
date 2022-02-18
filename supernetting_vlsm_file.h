@@ -20,6 +20,9 @@ typedef struct{
 void creatore_sottoreti_supernetting_c_file(int *ip_dec){
   indirizzi_supernet_file ip;
   FILE *fp;
+  char *buffer;
+  long size;
+  int scelta;
   int somma;
   int resto;
   int *host_sottorete;
@@ -159,11 +162,31 @@ void creatore_sottoreti_supernetting_c_file(int *ip_dec){
   }
   printf("Il file si trova nella cartella del programma e si chiama 'latest_supernet.txt'\n");
   fclose(fp);
+  fp = fopen("latest_supernet.txt", "r");
+  fseek(fp, 0, SEEK_END);
+  size = ftell(fp);
+  rewind(fp);
+  buffer = (char *) calloc(size, sizeof(char));
+  fread(buffer, sizeof(char), size, fp);
+  printf(buffer);
+  free(buffer);
+  fclose(fp);
+  do{
+    printf("Vuoi salvare il file? (1 = si; 0 = no): ");
+    scanf("%d", &scelta);
+    if(scelta == 0){
+      remove("latest_supernet.txt");
+    }
+  }while(scelta < 0 || scelta > 1);
+
 }
 
 void creatore_sottoreti_supernetting_b_file(int *ip_dec){
   indirizzi_supernet_file ip;
   FILE *fp;
+  char *buffer;
+  long size;
+  int scelta;
   int somma;
   int resto;
   int *host_sottorete;
@@ -303,11 +326,30 @@ void creatore_sottoreti_supernetting_b_file(int *ip_dec){
   }
   printf("Il file si trova nella cartella del programma e si chiama 'latest_supernet.txt'\n");
   fclose(fp);
+  fp = fopen("latest_supernet.txt", "r");
+  fseek(fp, 0, SEEK_END);
+  size = ftell(fp);
+  rewind(fp);
+  buffer = (char *) calloc(size, sizeof(char));
+  fread(buffer, sizeof(char), size, fp);
+  printf(buffer);
+  free(buffer);
+  fclose(fp);
+  do{
+    printf("Vuoi salvare il file? (1 = si; 0 = no): ");
+    scanf("%d", &scelta);
+    if(scelta == 0){
+      remove("latest_supernet.txt");
+    }
+  }while(scelta < 0 || scelta > 1);
 }
 
 void creatore_sottoreti_supernetting_a_file(int *ip_dec){
   indirizzi_supernet_file ip;
   FILE *fp;
+  char *buffer;
+  long size;
+  int scelta;
   int somma;
   int resto;
   int *host_sottorete;
@@ -447,6 +489,22 @@ void creatore_sottoreti_supernetting_a_file(int *ip_dec){
   }
   printf("Il file si trova nella cartella del programma e si chiama 'latest_supernet.txt'\n");
   fclose(fp);
+  fp = fopen("latest_supernet.txt", "r");
+  fseek(fp, 0, SEEK_END);
+  size = ftell(fp);
+  rewind(fp);
+  buffer = (char *) calloc(size, sizeof(char));
+  fread(buffer, sizeof(char), size, fp);
+  printf(buffer);
+  free(buffer);
+  fclose(fp);
+  do{
+    printf("Vuoi salvare il file? (1 = si; 0 = no): ");
+    scanf("%d", &scelta);
+    if(scelta == 0){
+      remove("latest_supernet.txt");
+    }
+  }while(scelta < 0 || scelta > 1);
 }
 
 
