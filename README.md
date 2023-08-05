@@ -24,9 +24,32 @@ IPtool è un piccolo programma per la creazione di sottoreti con FLSM e VLSM.
 
 8. [x] Controllare se 2 indirizzi ip appartengono alla stessa subnet
 
-9. [ ] Supporto al Supernetting
+9. [x] Supporto al Supernetting
+
+## Chiusura del progetto IPTool:
+Sono passati quasi 2 anni da quando ho iniziato a sviluppare questo programma e, anche se non è stato supportato per niente negli ultimi tempi, mi è servito per imparare di più sull'ottimizzazione del software e sono migliorata come programmatrice.
+
+Iniziai questo progetto come una sfida verso me stessa e verso un mio amico (ciao Marco Pagnanini) che aveva creato un programma simile a Settembre del 2021. Da li il nostro professore ci ha dato come compito la creazione di questo programma.
+Ho passato giorni e giorni all'inizio per risolvere bug, ottimizzare il programma e aggiungere funzionalità fino a quando non l'ho consegnato a Gennaio del 2022.
+Anche se questo programma non è il migliore del mondo, sono estremamente soddisfatta di quello che sono riuscita a fare in quei mesi.
+
+Chiudo con dei ringraziamenti.
+
+Ringrazio Marco Pagnanini per avermi spinto (involontariamente) a creare questo progetto e per avermi aiutato nella sua creazione.
+Ringrazio Imbimbo Francesco e Romagnoli Luigi per avermi dato questo compito da fare e per avermi insegnato tutti questi argomenti in 3 anni. Siete stati probabilmente gli unici professori veramente utili e corretti della scuola.
+Ringrazio Andrea Cazzato per aver testato il programma.
+E infine, ringrazio tutta la classe che mi ha accompagnata in questi 3 anni.
+
+Con questo messaggio chiudo definitivamente il progetto IPTool.
+
+Grazie.
+- Celeste Rossetti
 
 ## Changelog
+#### 05-08-2023
+ 1. Ottimizzato algoritmo per conversione da decimale a binario (passaggio da operazione semplice a operazione bitwise più veloce)
+ 2. Cambiato lo stato del supporto al supernetting da BETA a Stabile
+ 3. Rilasciata versione 1.0.6 (Ultima versione)
 #### 18-02-2022
  1. Sostituito algoritmo di creazione sottoreti con uno che si basa interamente su file. 
  2. Cancellati i creatori di sottoreti senza file
