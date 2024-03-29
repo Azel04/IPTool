@@ -27,7 +27,7 @@ int main(){
 	fine = 0;
 	puts(banner);
 	sleep(2);
-	printf("\n\tUn programma creato da Celeste Rossetti\n");
+	printf("\n\tUn programma creato da Yuna Rossetti\n");
 	sleep(2);
 	clearscreen(); //Pulizia schermo
 	do{
