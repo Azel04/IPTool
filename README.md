@@ -43,7 +43,7 @@ E infine, ringrazio tutta la classe che mi ha accompagnata in questi 3 anni.
 Con questo messaggio chiudo definitivamente il progetto IPTool.
 
 Grazie.
-- Celeste Rossetti
+- Yuna Rossetti
 
 ## Changelog
 #### 05-08-2023
